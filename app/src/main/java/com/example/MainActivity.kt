@@ -36,6 +36,7 @@ import com.example.ui.components.PlayStoreListingDialog
 import com.example.ui.components.CameraCaptureDialog
 import com.example.ui.components.ThemePickerDialog
 import com.example.ui.components.RealModeSettingsDialog
+import com.example.ui.components.DeviceConfigurationDataDialog
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
@@ -76,11 +77,23 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
   var showCameraDialog by remember { mutableStateOf(false) }
   var showThemeDialog by remember { mutableStateOf(false) }
   var showRealModeDialog by remember { mutableStateOf(false) }
+  var showDeviceConfigDialog by remember { mutableStateOf(false) }
+
+  if (showDeviceConfigDialog) {
+    DeviceConfigurationDataDialog(
+      isFr = appLanguage == AppLanguage.FRENCH,
+      onDismissRequest = { showDeviceConfigDialog = false }
+    )
+  }
 
   if (showRealModeDialog) {
     RealModeSettingsDialog(
       viewModel = viewModel,
       isFr = appLanguage == AppLanguage.FRENCH,
+      onOpenDeviceConfig = {
+        showRealModeDialog = false
+        showDeviceConfigDialog = true
+      },
       onDismissRequest = { showRealModeDialog = false }
     )
   }
@@ -115,12 +128,28 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
       TopAppBar(
         title = {
           Column {
-            Text(
-              text = "Audio Sync Hub",
-              style = MaterialTheme.typography.titleLarge,
-              fontWeight = FontWeight.Bold,
-              color = MaterialTheme.colorScheme.primary
-            )
+            Row(verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+              Text(
+                text = "Audio Sync Hub",
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary
+              )
+              Spacer(modifier = Modifier.width(8.dp))
+              Surface(
+                shape = androidx.compose.foundation.shape.RoundedCornerShape(6.dp),
+                color = androidx.compose.ui.graphics.Color(0xFF002654).copy(alpha = 0.25f),
+                border = androidx.compose.foundation.BorderStroke(1.dp, androidx.compose.ui.graphics.Color(0xFF38BDF8).copy(alpha = 0.5f))
+              ) {
+                Text(
+                  text = "VERSION FR 🇫🇷",
+                  fontSize = 9.5.sp,
+                  fontWeight = FontWeight.ExtraBold,
+                  color = androidx.compose.ui.graphics.Color(0xFF38BDF8),
+                  modifier = Modifier.padding(horizontal = 6.dp, vertical = 2.dp)
+                )
+              }
+            }
             Text(
               text = "Z-CORE Voice & Google Drive Sync Infrastructure",
               style = MaterialTheme.typography.labelSmall,
@@ -235,6 +264,17 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
             Icon(
               imageVector = Icons.Filled.PhotoCamera,
               contentDescription = "Ouvrir la caméra",
+              tint = MaterialTheme.colorScheme.primary
+            )
+          }
+
+          IconButton(
+            onClick = { showDeviceConfigDialog = true },
+            modifier = Modifier.testTag("top_bar_device_config_btn")
+          ) {
+            Icon(
+              imageVector = Icons.Filled.PhoneAndroid,
+              contentDescription = "Données Appareil Galaxy S22 SM-S901W",
               tint = MaterialTheme.colorScheme.primary
             )
           }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Z-CORE G7 // GEMIN CORE V7 PRO FINAL // HOST LOCAL PROXY LAUNCHER
+# Z-CORE G7 // GEMIN CORE V7 PRO FINAL // VERSION FR 🇫🇷
 # LICENSE NETSECUREPRO.CA // IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025
 # NANS-V9 // SOUVERAINETÉ LIA // 100% LOCAL-FIRST (LOI 25)
 # Usage: bash launcher.hostlocalproxy.sh --mode auto --tunnel cloudflare

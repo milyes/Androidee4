@@ -1,0 +1,1191 @@
+<html><head><meta charset="UTF-8">
+<title>Données de l&#39;appareil</title>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #dddddd;
+    }
+    html,body,h1,h2,h3,h4,h5,h6 {
+      font-family: "Roboto", sans-serif
+    }
+    body {
+      margin:auto;
+      padding:0.01em 16px
+    }
+    .title{
+      color:#757575!important;
+      font-size:30px!important;
+      padding-top:16px!important;
+      padding-bottom:8px!important;
+    }
+    .category-title {
+      font-size:24px!important;
+      opacity:0.75;
+    }
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      display:table;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #dddddd;
+    }
+  </style></head><body>
+
+<h4>############## * Google Confidential and Proprietary * ###############</h4><div class="title">
+<img src="https://www.gstatic.com/images/icons/material/system/1x/phone_android_grey600_24dp.png" alt="Icon">
+ANDROID DEVICE CONFIGURATION SERVICE DATA
+</div>
+
+<h3 class="category-title">Device and Account Identifiers</h3>
+Identifiant Android : 3867290799904350142<br/>
+Code(s) NIEM : <br/>
+Code(s) IIEM : 354818254529107<br/>
+Code(s) NSE : <br/>
+Numéro(s) de série : r0q:R3CT60MHGWL<br/>
+Adresses MAC : <br/>
+<br/>
+Nom sympathique : Galaxy S22<br/>
+<hr>
+
+<h3 class="category-title">Device Attributes</h3>
+Région : fr-CA<br/>
+Fuseau horaire : America/Toronto<br/>
+<br/>
+Matériel : qcom<br/>
+Modèle : SM-S901W<br/>
+Marque : samsung<br/>
+Fabricant : samsung<br/>
+Type d'appareil : Android<br/>
+Sous-type d'appareil : Phone<br/>
+Appareil : r0q<br/>
+Identifiant du client partenaire : android-samsung-ss<br/>
+Produit : r0qcsx<br/>
+Version du micrologiciel de la radio : S901WVLU3CWGI,S901WVLU3CWGI<br/>
+Version du micrologiciel du programme d'amorçage : S901WVLU3CWGI<br/>
+<br/>
+Type d'écran tactile : Finger<br/>
+Type de clavier : No Keys<br/>
+Clavier matériel : false<br/>
+Type de navigation : No Navigation<br/>
+Navigation à cinq directions : false<br/>
+Disposition de l'écran : Normal<br/>
+Disposition dynamique de l'écran : Undefined<br/>
+Densité de l'écran : 480 DPI<br/>
+Hauteur de l'écran : 2340 pixels<br/>
+Largeur de l'écran : 1080 pixels<br/>
+Plus petite largeur d'écran : 360 pixels<br/>
+<br/>
+Bibliothèques système partagées : DesktopSystemUICoreLib, DesktopSystemUIKnoxLib, EpdgManager, SemAudioThumbnail, SmpsManager, android.ext.shared, android.hidl.base-V1.0-java, android.hidl.manager-V1.0-java, android.net.ipsec.ike, android.test.base, android.test.mock, android.test.runner, androidx.camera.extensions.impl, com.android.cts.ctsshim.shared_library, com.android.future.usb.accessory, com.android.hotwordenrollment.common.util, com.android.location.provider, com.android.media.remotedisplay, com.android.mediadrm.signer, com.google.android.gms, com.publicnfc, com.qti.location.sdk, com.qualcomm.embmslibrary, com.qualcomm.qmapbridge, com.qualcomm.qti.audiosphere, com.qualcomm.qti.imscmservice-V2.0-java, com.qualcomm.qti.imscmservice-V2.1-java, com.qualcomm.qti.imscmservice-V2.2-java, com.qualcomm.qti.imscmservice@1.0-java, com.qualcomm.qti.uim.uimservicelibrary, com.samsung.android.ibs.framework-v1, com.samsung.android.knox.analytics.sdk, com.samsung.android.knox.knoxsdk, com.samsung.android.nfc.mpos, com.samsung.android.nfc.rfcontrol, com.samsung.android.nfc.t4t, com.samsung.android.privacydashboard.framework-v1, com.samsung.android.psitrackersdk.framework-v1, com.samsung.android.semtelephonesdk.framework-v1, com.samsung.android.spensdk.framework-v1, com.samsung.bbc, com.samsung.device, com.sec.android.sdhmssdk.framework-v1, com.sec.esecomm, imsmanager, izat.xt.srv, javax.obex, knoxanalyticssdk, knoxsdk, lib.engmodejni.samsung.so, libAEBHDR_wrapper.camera.samsung.so, libAIQSolution_MPI.camera.samsung.so, libAIQSolution_MPISingleRGB40.camera.samsung.so, libAImode_wrapper.camera.samsung.so, libAIphoto_core.camera.samsung.so, libAiSolution_wrapper_v1.camera.samsung.so, libBeauty_v4.camera.samsung.so, libBestComposition.polarr.so, libBright_core.camera.samsung.so, libCandidSnapJNI.camera.samsung.so, libDLInterface_aidl.camera.samsung.so, libDLInterface_hidl.camera.samsung.so, libDocRectifyWrapper.camera.samsung.so, libDualCamBokehCapture.camera.samsung.so, libEventDetector.camera.samsung.so, libFacePreProcessing.camera.samsung.so, libFacePreProcessing_jni.camera.samsung.so, libFaceRecognition.arcsoft.so, libFaceRestoration.camera.samsung.so, libFace_Landmark_API.camera.samsung.so, libFacialAttributeDetection.arcsoft.so, libFacialBasedSelfieCorrection.camera.samsung.so, libFacialStickerEngine.arcsoft.so, libFeature.polarr.so, libFood.camera.samsung.so, libFoodDetector.camera.samsung.so, libHIDTSnapJNI.camera.samsung.so, libHREnhancementAPI.camera.samsung.so, libHprFace_GAE_api.camera.samsung.so, libHprFace_GAE_jni.camera.samsung.so, libHpr_RecGAE_cvFeature_v1.0.camera.samsung.so, libImageCropper.camera.samsung.so, libImageScreener.camera.samsung.so, libImageSegmenter_v1.camera.samsung.so, libImageTagger.camera.samsung.so, libInteractiveSegmentation.camera.samsung.so, libLocalTM_pcc.camera.samsung.so, libLocalTM_wrapper.camera.samsung.so, libMPISingleRGB40.camera.samsung.so, libMultiFrameProcessing30.camera.samsung.so, libMyFilter.camera.samsung.so, libMyFilterPlugin.camera.samsung.so, libObjectDetector_v1.camera.samsung.so, libOpenCL.so, libOpenCv.camera.samsung.so, libOpenCv.qr.camera.samsung.so, libPersonal_capture.camera.samsung.so, libPolarrSnap.polarr.so, libPortraitDistortionCorrection.arcsoft.so, libPortraitDistortionCorrectionCali.arcsoft.so, libPortraitSolution.camera.samsung.so, libQREngine.camera.samsung.so, libQREngine_common.camera.samsung.so, libRectify.camera.samsung.so, libRemasterEngine.camera.samsung.so, libSDKMoireDetector.spenocr.samsung.so, libSDKRecognitionOCR.spenocr.samsung.so, libSDKRecognitionText.spensdk.samsung.so, libSEF.quram.so, libSFEffect.fonteffect.samsung.so, libSceneDetector_v1.camera.samsung.so, libSmartScan.camera.samsung.so, libStride.camera.samsung.so, libStrideTensorflowLite.camera.samsung.so, libSwIsp_wrapper_v1.camera.samsung.so, libTracking.polarr.so, libUltraWideDistortionCorrection.camera.samsung.so, libVideoClassifier.camera.samsung.so, libWideDistortionCorrection.camera.samsung.so, libYuv.polarr.so, lib_nativeJni.dk.samsung.so, lib_native_client.dk.samsung.so, lib_pet_detection.arcsoft.so, lib_vnd_client.dk.samsung.so, libadsprpc.so, libae_bracket_hdr.arcsoft.so, libagifencoder.quram.so, libamDNN.media.samsung.so, libapex_jni.media.samsung.so, libbinauralrenderer_wrapper.qti.so, libcdsprpc.so, libcolor_engine.camera.samsung.so, libcore2nativeutil.camera.samsung.so, libdiag_system.qti.so, libexifa.camera.samsung.so, libface_landmark.arcsoft.so, libfastcvopt.so, libfrtracking_engine.arcsoft.so, libhal.wsm.samsung.so, libheifcapture_jni.media.samsung.so, libhigh_dynamic_range.arcsoft.so, libhigh_res.arcsoft.so, libhoaeffects.qti.so, libhumantracking.arcsoft.so, libhumantracking_util.camera.samsung.so, libhybridHDR_wrapper.camera.samsung.so, libhybrid_high_dynamic_range.arcsoft.so, libimage_enhancement.arcsoft.so, libimagecodec.quram.so, libjpega.camera.samsung.so, libjpegsq.media.samsung.so, libknox_remotedesktopclient.knox.samsung.so, liblistenjni.qti.so, liblow_light_hdr.arcsoft.so, libmidas_DNNInterface.camera.samsung.so, libmidas_core.camera.samsung.so, libneural.snap.samsung.so, libobjectcapture.arcsoft.so, libobjectcapture_jni.arcsoft.so, libperfsdk.performance.samsung.so, libphotoeditorEngine.camera.samsung.so, libqape.qti.so, libqti-perfd-client.so, libsce_v1.crypto.samsung.so, libsdsprpc.so, libsecairevital.camera.samsung.so, libsecimaging.camera.samsung.so, libsecimaging_pdk.camera.samsung.so, libsecjpeginterface.camera.samsung.so, libsecphotoremaster.camera.samsung.so, libsecuresnap_aidl.snap.samsung.so, libsecuresnap_hidl.snap.samsung.so, libsemimagecrop_jni.media.samsung.so, libsimba.media.samsung.so, libslljpeg.media.samsung.so, libsmart_cropping.camera.samsung.so, libsnap_aidl.snap.samsung.so, libsnap_hidl.snap.samsung.so, libsrib_CNNInterface.camera.samsung.so, libsrib_humanaware_engine.camera.samsung.so, libss_jni.securestorage.samsung.so, libsume_mediabuffer_jni.media.samsung.so, libsuperresolution_raw.arcsoft.so, libsuperresolutionraw_wrapper_v2.camera.samsung.so, libsurfaceutil.camera.samsung.so, libtensorflowLite.dynamic_viewing.camera.samsung.so, libtensorflowlite_c.camera.samsung.so, libtensorflowlite_c.spenocr.samsung.so, libtflite2.myfilters.camera.samsung.so, libtflite_jni.secinput.samsung.so, libthermalclient.qti.so, libupdateprof.qti.so, libveengine.arcsoft.so, libvesframework.videoeditor.samsung.so, libvesgraphicframework.videoeditor.samsung.so, libvesinterface.videoeditor.samsung.so, libvraudio_client.qti.so, manager_wrapper_compat, mcfsdk, org.apache.http.legacy, org.carconnectivity.android.digitalkey.rangingintent, org.carconnectivity.android.digitalkey.secureelement, org.carconnectivity.android.digitalkey.timesync, org.simalliance.openmobileapi, qti-telephony-hidl-wrapper, qti-telephony-utils, rcsopenapi, saiv, samsungkeystoreutils, scamera_sdk_util, scamera_sep, sec_platform_library, secimaging, sem-telephony-common, semextendedformat, semmediatranscoder, semsdrvideoconverter, services.core, sfeffect, vendor.qti.hardware.data.connection-V1.0-java, vendor.qti.hardware.data.connection-V1.1-java, vendor.qti.hardware.fingerprint.V1_0.IQfpAndroidServices, vendor.qti.hardware.fingerprint.V1_0.IQtiExtendedFingerprint, videoeditor_sdk, vsimmanager<br/>
+Plateformes natives prises en charge/Types de processeur : arm64-v8a, armeabi-v7a, armeabi<br/>
+Régions prises en charge : af, am, ar, ar-XB, as, az, be, bg, bn, bs, ca, cs, da, de, el, en, en-CA, en-DI, en-GB, en-US, en-XA, es, es-US, et, eu, fa, fi, fil, fr, fr-CA, gl, gu, hi, hr, hu, hy, in, is, it, iw, ja, ka, kk, km, kn, ko, ko-KR, ky, lo, lt, lv, mk, ml, mn, mr, ms, my, nb, ne, nl, or, pa, pl, pt, pt-BR, pt-PT, ro, ru, si, sk, sl, sq, sr, sr-Latn, sv, sw, ta, te, th, tr, uk, ur, uz, vi, zh, zh-CN, zh-HK, zh-TW, zu<br/>
+Extensions OpenGL prises en charge : GL_AMD_compressed_ATC_texture, GL_AMD_performance_monitor, GL_ANDROID_extension_pack_es31a, GL_APPLE_texture_2D_limited_npot, GL_ARB_vertex_buffer_object, GL_ARM_shader_framebuffer_fetch_depth_stencil, GL_EXT_EGL_image_array, GL_EXT_EGL_image_external_wrap_modes, GL_EXT_EGL_image_storage, GL_EXT_YUV_target, GL_EXT_blend_func_extended, GL_EXT_blit_framebuffer_params, GL_EXT_buffer_storage, GL_EXT_clip_control, GL_EXT_clip_cull_distance, GL_EXT_color_buffer_float, GL_EXT_color_buffer_half_float, GL_EXT_copy_image, GL_EXT_debug_label, GL_EXT_debug_marker, GL_EXT_discard_framebuffer, GL_EXT_disjoint_timer_query, GL_EXT_draw_buffers_indexed, GL_EXT_external_buffer, GL_EXT_fragment_invocation_density, GL_EXT_geometry_shader, GL_EXT_gpu_shader5, GL_EXT_memory_object, GL_EXT_memory_object_fd, GL_EXT_multisampled_render_to_texture, GL_EXT_multisampled_render_to_texture2, GL_EXT_primitive_bounding_box, GL_EXT_protected_textures, GL_EXT_read_format_bgra, GL_EXT_robustness, GL_EXT_sRGB, GL_EXT_sRGB_write_control, GL_EXT_shader_framebuffer_fetch, GL_EXT_shader_io_blocks, GL_EXT_shader_non_constant_global_initializers, GL_EXT_tessellation_shader, GL_EXT_texture_border_clamp, GL_EXT_texture_buffer, GL_EXT_texture_cube_map_array, GL_EXT_texture_filter_anisotropic, GL_EXT_texture_format_BGRA8888, GL_EXT_texture_format_sRGB_override, GL_EXT_texture_norm16, GL_EXT_texture_sRGB_R8, GL_EXT_texture_sRGB_decode, GL_EXT_texture_type_2_10_10_10_REV, GL_IMG_texture_filter_cubic, GL_KHR_blend_equation_advanced, GL_KHR_blend_equation_advanced_coherent, GL_KHR_debug, GL_KHR_no_error, GL_KHR_robust_buffer_access_behavior, GL_KHR_texture_compression_astc_hdr, GL_KHR_texture_compression_astc_ldr, GL_NV_shader_noperspective_interpolation, GL_OES_EGL_image, GL_OES_EGL_image_external, GL_OES_EGL_image_external_essl3, GL_OES_EGL_sync, GL_OES_blend_equation_separate, GL_OES_blend_func_separate, GL_OES_blend_subtract, GL_OES_compressed_ETC1_RGB8_texture, GL_OES_compressed_paletted_texture, GL_OES_depth24, GL_OES_depth_texture, GL_OES_depth_texture_cube_map, GL_OES_draw_texture, GL_OES_element_index_uint, GL_OES_framebuffer_object, GL_OES_get_program_binary, GL_OES_matrix_palette, GL_OES_packed_depth_stencil, GL_OES_point_size_array, GL_OES_point_sprite, GL_OES_read_format, GL_OES_rgb8_rgba8, GL_OES_sample_shading, GL_OES_sample_variables, GL_OES_shader_image_atomic, GL_OES_shader_multisample_interpolation, GL_OES_standard_derivatives, GL_OES_stencil_wrap, GL_OES_surfaceless_context, GL_OES_texture_3D, GL_OES_texture_compression_astc, GL_OES_texture_cube_map, GL_OES_texture_env_crossbar, GL_OES_texture_float, GL_OES_texture_float_linear, GL_OES_texture_half_float, GL_OES_texture_half_float_linear, GL_OES_texture_mirrored_repeat, GL_OES_texture_npot, GL_OES_texture_stencil8, GL_OES_texture_storage_multisample_2d_array, GL_OES_texture_view, GL_OES_vertex_array_object, GL_OES_vertex_half_float, GL_OVR_multiview, GL_OVR_multiview2, GL_OVR_multiview_multisampled_render_to_texture, GL_QCOM_YUV_texture_gather, GL_QCOM_alpha_test, GL_QCOM_extended_get, GL_QCOM_frame_extrapolation, GL_QCOM_motion_estimation, GL_QCOM_render_shared_exponent, GL_QCOM_shader_framebuffer_fetch_noncoherent, GL_QCOM_shader_framebuffer_fetch_rate, GL_QCOM_shading_rate, GL_QCOM_texture_foveated, GL_QCOM_texture_foveated2, GL_QCOM_texture_foveated_subsampled_layout, GL_QCOM_tiled_rendering, GL_QCOM_validate_shader_binary<br/>
+Nombre de processeurs disponibles : 8<br/>
+Verrouillage d'écran sécuritaire proposé : true<br/>
+Mémoire totale : 7580258304 Bytes<br/>
+Appareil dont la mémoire vive est faible : false<br/>
+Taille maximale du téléchargement de l'APK : 50 MB<br/>
+Fonctionnalités système proposées :
+<table border="1"><tr>
+    <th>Fonctionnalité</th>
+    <th>Version</th>
+</tr><tr>
+    <td>android.hardware.audio.low_latency</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.audio.output</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.audio.pro</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.biometrics.face</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.bluetooth</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.bluetooth_le</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.any</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.autofocus</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.capability.manual_post_processing</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.capability.manual_sensor</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.capability.raw</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.concurrent</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.flash</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.front</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.camera.level.full</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.faketouch</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.fingerprint</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.hardware_keystore</td>
+    <td>100</td>
+</tr><tr>
+    <td>android.hardware.keystore.limited_use_key</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.location</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.location.gps</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.location.network</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.microphone</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc.any</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc.ese</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc.hce</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc.hcef</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.nfc.uicc</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.opengles.aep</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.ram.normal</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.screen.landscape</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.screen.portrait</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.se.omapi.ese</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.se.omapi.uicc</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.security.model.compatible</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.accelerometer</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.barometer</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.compass</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.gyroscope</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.light</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.proximity</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.stepcounter</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.sensor.stepdetector</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.strongbox_keystore</td>
+    <td>4</td>
+</tr><tr>
+    <td>android.hardware.telephony</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.euicc</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.gsm</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.ims</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.ims.singlereg</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.touchscreen</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.touchscreen.multitouch</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.touchscreen.multitouch.distinct</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.touchscreen.multitouch.jazzhand</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.usb.accessory</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.usb.host</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.vulkan.compute</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.vulkan.level</td>
+    <td>1</td>
+</tr><tr>
+    <td>android.hardware.vulkan.version</td>
+    <td>4198400</td>
+</tr><tr>
+    <td>android.hardware.wifi</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.wifi.aware</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.wifi.direct</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.wifi.passpoint</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.wifi.rtt</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.activities_on_secondary_displays</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.app_enumeration</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.app_widgets</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.autofill</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.backup</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.cant_save_state</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.companion_device_setup</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.connectionservice</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.controls</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.cts</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.device_admin</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.file_based_encryption</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.freeform_window_management</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.home_screen</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.incremental_delivery</td>
+    <td>2</td>
+</tr><tr>
+    <td>android.software.input_methods</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.ipsec_tunnels</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.live_wallpaper</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.managed_users</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.midi</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.opengles.deqp.level</td>
+    <td>132449025</td>
+</tr><tr>
+    <td>android.software.picture_in_picture</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.print</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.secure_lock_screen</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.securely_removes_users</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.sip</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.sip.voip</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.verified_boot</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.voice_recognizers</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.vulkan.deqp.level</td>
+    <td>132449025</td>
+</tr><tr>
+    <td>android.software.webview</td>
+    <td></td>
+</tr><tr>
+    <td>com.google.android.feature.ACCESSIBILITY_PRELOAD</td>
+    <td></td>
+</tr><tr>
+    <td>com.google.android.feature.AER_OPTIMIZED</td>
+    <td></td>
+</tr><tr>
+    <td>com.google.android.feature.ASI</td>
+    <td></td>
+</tr><tr>
+    <td>com.google.android.feature.DPS</td>
+    <td></td>
+</tr><tr>
+    <td>com.google.android.feature.TURBO_PRELOAD</td>
+    <td></td>
+</tr><tr>
+    <td>com.nxp.mifare</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2402</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2403</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2501</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2502</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2601</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2701</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2801</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2802</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2803</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2901</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2902</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.2903</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.3001</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.3002</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.3101</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.authfw</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.authfw.tahal</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.camerasdkservice</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.cameraxservice</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.knox.knoxsdk</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.knox.knoxsdk.api.level.33</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.knox.knoxsdk.api.level.34</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.knox.knoxsdk.api.level.35</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.nfc.t4temul</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.sdk.camera.processor</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.sdk.camera.processor.effect</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.SAMSUNG_EXPERIENCE</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.SAMSUNG_EXPERIENCE_AM</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.aodservice_v09</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.aremoji.v2</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.audio_listenback</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.device_category_phone</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.galaxyfinder_v7</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.ipsgeofence</td>
+    <td>1</td>
+</tr><tr>
+    <td>com.samsung.feature.samsung_experience_mobile</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.samsungpositioning</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.samsungpositioning.snlp</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.android.secimaging</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.android.smartface.smart_stay</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cocktailpanel</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover.clearcameraviewcover</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover.flip</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover.ledbackcover</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover.nfcledcover</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.cover.sview</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.motionrecognition_service</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.nfc_authentication</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.nfc_authentication_cover</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.nsflp</td>
+    <td>601</td>
+</tr><tr>
+    <td>com.sec.feature.pocketmode</td>
+    <td>33</td>
+</tr><tr>
+    <td>com.sec.feature.saccessorymanager</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.sensorhub</td>
+    <td>29</td>
+</tr><tr>
+    <td>com.sec.feature.usb_authentication</td>
+    <td></td>
+</tr><tr>
+    <td>com.sec.feature.wirelesscharger_authentication</td>
+    <td></td>
+</tr><tr>
+    <td>vendor.android.hardware.camera.preview-dis.back</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.keystore.app_attest_key</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.erofs</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.telecom</td>
+    <td></td>
+</tr><tr>
+    <td>android.software.window_magnification</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.3201</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.api.version.3301</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.knox.knoxsdk.api.level.36</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.aodservice_v10</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.audio_fast_listenback</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.feature.support_repair_mode</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.calling</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.data</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.messaging</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.radio.access</td>
+    <td></td>
+</tr><tr>
+    <td>android.hardware.telephony.subscription</td>
+    <td></td>
+</tr><tr>
+    <td>com.samsung.android.camera.deviceinjector</td>
+    <td>1</td>
+</tr><tr>
+    <td>com.samsung.android.camera.deviceinjector</td>
+    <td>2</td>
+</tr>
+</table><br/>
+Version GLES : 196610<br/>
+Clé de configuration du fabricant d'équipement d'origine pour les installations automatiques à partir de Google Play : FMC<br/>
+Version installée sans fil : false<br/>
+<br/>
+Application de gestion : <br/>
+Certificat de signature de l'application de gestion (SHA1, obsolète) : <br/>
+Certificat de signature de l'application de gestion (SHA-256) : <br/>
+<hr>
+
+<h3 class="category-title">System Software and Security Versions</h3>
+Version du produit : r0qcsx<br/>
+Empreinte digitale de la version du SE : samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys<br/>
+Estampille temporelle de la version du SE : 1 août 2023, 08 h 10 min 23 s UTC<br/>
+Version de la trousse SDK Android : 33<br/>
+Cadre des services Google/Version des services Google Play : 233515045<br/>
+Niveau du correctif de sécurité 2023-08-01<br/>
+Certificats sans fil : pQCiqOznWXJsMOtUFQOoAlW1zig=, Pcsad29a5jlLVFIZ9U5JX6bj0ao=<br/>
+<hr>
+
+<h3 class="category-title">Network Connectivity &amp; Performance</h3>
+Fournisseur de services actuel de la carte SIM (MCC + MNC) : 302370<br/>
+Fournisseur de services cellulaires actuel (MCC + MNC) : 302720<br/>
+Type de réseau de données : WIFI<br/>
+Dernier fournisseur de services de la carte SIM (MCC + MNC) : 302370<br/>
+Dernier fournisseur de services cellulaires (MCC + MNC) : 302720<br/>
+Dernière eUICC générée : <br/>
+Identifiant du dernier fournisseur de services : 1962<br/>
+Données d'abonnement SIM :
+<table border="1"><tr>
+    <th>Fournisseur de services de la carte SIM (MCC + MNC)</th>
+    <th>Nom du fournisseur de services</th>
+    <th>État d'itinérance</th>
+    <th>Rôles par défaut</th>
+    <th>IMSI tronqué</th>
+    <th>Identifiant de groupe, niveau 1</th>
+</tr><tr>
+    <td>302370</td>
+    <td>Fido</td>
+    <td>Data Roaming Disabled</td>
+    <td>Voice, Data, SMS</td>
+    <td>302370507900000</td>
+    <td>DD</td>
+</tr>
+</table><br/>
+Heure d'inscription : 21 août 2022, 20 h 26 min 05 s UTC<br/>
+Heure de la première connexion de données : 21 août 2022, 20 h 26 min 05 s UTC<br/>
+<br/>
+Heure de la dernière connexion de données : 27 sept. 2023, 01 h 42 min 53 s UTC<br/>
+Raison de la dernière connexion de données : Internal Trigger<br/>
+Dernier nombre de tentatives de connexion de données : 1<br/>
+Ensemble d'applications ayant déclenché la dernière connexion de données : unspecified<br/>
+Classe d'application ayant déclenché la dernière connexion de données : <br/>
+L'application a utilisé l'option forcée pour déclencher la dernière connexion de données : <br/>
+<h3>Récentes connexions réussies au service de configuration d'appareil Android : </h3>
+<table border="1"><tr>
+    <th>Heure de la connexion</th>
+    <th>Empreinte numérique de la version</th>
+    <th>Produit</th>
+    <th>Marque</th>
+    <th>Version du micrologiciel de la radio</th>
+    <th>Version du micrologiciel du programme d'amorçage</th>
+    <th>Version des services Google Play</th>
+</tr><tr>
+    <td>26 avr. 2023, 03 h 19 min 43 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>29 avr. 2023, 04 h 40 min 43 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>2 mai 2023, 08 h 41 min 58 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>3 mai 2023, 02 h 51 min 00 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>6 mai 2023, 03 h 36 min 38 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>7 mai 2023, 16 h 51 min 31 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>9 mai 2023, 08 h 11 min 20 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>10 mai 2023, 02 h 52 min 30 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>16 mai 2023, 03 h 13 min 18 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>16 mai 2023, 07 h 01 min 06 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>23 mai 2023, 06 h 25 min 53 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>30 mai 2023, 09 h 16 min 29 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>1 juin 2023, 04 h 00 min 48 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>6 juin 2023, 05 h 16 min 03 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>7 juin 2023, 22 h 43 min 14 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>9 juin 2023, 18 h 34 min 33 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>13 juin 2023, 04 h 15 min 57 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>17 juin 2023, 03 h 40 min 54 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>20 juin 2023, 03 h 23 min 23 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>22 juin 2023, 03 h 30 min 45 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>27 juin 2023, 02 h 27 min 14 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>28 juin 2023, 00 h 19 min 46 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>4 juill. 2023, 01 h 33 min 53 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>11 juill. 2023, 01 h 09 min 35 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>11 juill. 2023, 07 h 40 min 48 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>11 juill. 2023, 17 h 32 min 56 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>23 juill. 2023, 19 h 27 min 35 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>232516045</td>
+</tr><tr>
+    <td>24 juill. 2023, 23 h 10 min 28 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>25 juill. 2023, 10 h 03 min 10 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>232518045</td>
+</tr><tr>
+    <td>28 juill. 2023, 08 h 42 min 06 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>29 juill. 2023, 21 h 54 min 15 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>232617045</td>
+</tr><tr>
+    <td>31 juill. 2023, 22 h 41 min 46 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>3 août 2023, 10 h 28 min 25 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>5 août 2023, 08 h 53 min 51 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>233013045</td>
+</tr><tr>
+    <td>7 août 2023, 21 h 59 min 14 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>11 août 2023, 10 h 24 min 59 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>14 août 2023, 20 h 59 min 35 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>16 août 2023, 08 h 40 min 50 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>19 août 2023, 09 h 05 min 05 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>233116045</td>
+</tr><tr>
+    <td>21 août 2023, 20 h 05 min 07 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>24 août 2023, 05 h 51 min 00 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>24 août 2023, 05 h 57 min 23 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>24 août 2023, 14 h 06 min 33 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>25 août 2023, 19 h 10 min 09 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>28 août 2023, 19 h 19 min 11 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>29 août 2023, 03 h 20 min 49 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>233217045</td>
+</tr><tr>
+    <td>1 sept. 2023, 04 h 24 min 40 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLS3CWF2:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLS3CWF2,S901WVLS3CWF2</td>
+    <td>S901WVLS3CWF2</td>
+    <td>233316045</td>
+</tr><tr>
+    <td>2 sept. 2023, 10 h 03 min 28 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLU3CWGI,S901WVLU3CWGI</td>
+    <td>S901WVLU3CWGI</td>
+    <td>233316045</td>
+</tr><tr>
+    <td>4 sept. 2023, 18 h 29 min 10 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>6 sept. 2023, 21 h 07 min 29 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>8 sept. 2023, 03 h 21 min 49 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>9 sept. 2023, 13 h 55 min 39 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>11 sept. 2023, 17 h 45 min 08 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>13 sept. 2023, 21 h 31 min 57 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>13 sept. 2023, 21 h 37 min 44 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLU3CWGI,S901WVLU3CWGI</td>
+    <td>S901WVLU3CWGI</td>
+    <td>233414045</td>
+</tr><tr>
+    <td>18 sept. 2023, 16 h 54 min 51 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>21 sept. 2023, 08 h 56 min 41 s UTC</td>
+    <td>samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys</td>
+    <td>qcom</td>
+    <td>samsung</td>
+    <td>S901WVLU3CWGI,S901WVLU3CWGI</td>
+    <td>S901WVLU3CWGI</td>
+    <td>233515045</td>
+</tr><tr>
+    <td>21 sept. 2023, 08 h 57 min 52 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>25 sept. 2023, 16 h 00 min 49 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr><tr>
+    <td>27 sept. 2023, 01 h 42 min 53 s UTC</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
+</table><br/>
+<h3>Récentes connexions échouées au service de configuration d'appareil Android : </h3>
+<table border="1"><tr>
+    <th>Heure de la connexion</th>
+    <th>Code de réponse HTTP</th>
+</tr>
+</table><br/>
+<h3>Journal d'audit : </h3>
+<table border="1"><tr>
+    <th>Heure de l'événement</th>
+    <th>Identifiant</th>
+    <th>Message</th>
+</tr>
+</table><br/>
+<hr>
+<h4>############## * Google Confidential and Proprietary * ###############</h4></body></html>

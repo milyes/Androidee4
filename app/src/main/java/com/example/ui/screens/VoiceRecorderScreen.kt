@@ -164,6 +164,20 @@ fun VoiceRecorderScreen(
                                     modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
                                 )
                             }
+                            Spacer(Modifier.width(6.dp))
+                            Surface(
+                                shape = RoundedCornerShape(4.dp),
+                                color = Color(0xFF002654).copy(alpha = 0.25f),
+                                border = BorderStroke(1.dp, Color(0xFF38BDF8).copy(alpha = 0.5f))
+                            ) {
+                                Text(
+                                    text = "VERSION FR 🇫🇷",
+                                    fontSize = 9.sp,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    color = Color(0xFF38BDF8),
+                                    modifier = Modifier.padding(horizontal = 5.dp, vertical = 2.dp)
+                                )
+                            }
                         }
                         Text(
                             text = tr("Microphone Matériel Direct • Sauvegarde Locale", "Hardware Direct Microphone • Local Storage"),

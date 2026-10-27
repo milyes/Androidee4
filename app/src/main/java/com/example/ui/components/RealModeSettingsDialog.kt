@@ -39,6 +39,7 @@ private val RealModeSky = Color(0xFF0EA5E9)
 fun RealModeSettingsDialog(
     viewModel: AudioSyncViewModel,
     isFr: Boolean = true,
+    onOpenDeviceConfig: (() -> Unit)? = null,
     onDismissRequest: () -> Unit
 ) {
     val realParams by viewModel.realDeviceParameters.collectAsState()
@@ -345,6 +346,33 @@ fun RealModeSettingsDialog(
                                 fontFamily = FontFamily.Monospace,
                                 fontSize = 10.5.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
+                    if (onOpenDeviceConfig != null) {
+                        Spacer(modifier = Modifier.height(10.dp))
+                        OutlinedButton(
+                            onClick = onOpenDeviceConfig,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .testTag("btn_inspect_s22_device_config"),
+                            shape = RoundedCornerShape(12.dp),
+                            border = BorderStroke(1.dp, RealModeSky.copy(alpha = 0.6f)),
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                contentColor = RealModeSky
+                            )
+                        ) {
+                            Icon(
+                                imageVector = Icons.Filled.PhoneAndroid,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = if (isFr) "Ouvrir Fiche Galaxy S22 SM-S901W" else "Open Galaxy S22 SM-S901W Hardware Spec",
+                                fontWeight = FontWeight.SemiBold,
+                                fontSize = 12.sp
                             )
                         }
                     }

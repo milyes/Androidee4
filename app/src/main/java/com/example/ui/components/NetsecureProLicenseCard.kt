@@ -157,12 +157,13 @@ fun NetsecureProLicenseCard(
                         Spacer(modifier = Modifier.width(6.dp))
                         Column {
                             Text(
-                                text = "Version FR",
+                                text = "VERSION FR 🇫🇷",
                                 style = MaterialTheme.typography.labelSmall,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.ExtraBold,
+                                color = MaterialTheme.colorScheme.primary
                             )
                             Text(
-                                text = "v2026.8-FR",
+                                text = "v2026.8-FR Officielle",
                                 style = MaterialTheme.typography.labelSmall,
                                 fontSize = 10.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant

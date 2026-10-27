@@ -559,7 +559,7 @@ fun IA22SessionCard(
                                     color = Color(0xFF10B981).copy(alpha = 0.2f)
                                 ) {
                                     Text(
-                                        text = "GEMIN CORE V7 PRO FINAL",
+                                        text = "GEMIN CORE V7 PRO FINAL • VERSION FR 🇫🇷",
                                         fontSize = 8.sp,
                                         fontWeight = FontWeight.Black,
                                         color = Color(0xFF10B981),

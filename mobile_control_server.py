@@ -225,13 +225,13 @@ HTML_MOBILE_DASHBOARD = """<!DOCTYPE html>
             <div class="logo">
                 <span>⚡</span> GEMIN CORE V7 PRO FINAL
             </div>
-            <div class="live-tag">● NETSECUREPRO.CA</div>
+            <div class="live-tag">● VERSION FR 🇫🇷 // NETSECUREPRO.CA</div>
         </div>
         <div class="subhead">
-            LICENSE NETSECUREPRO.CA // GEMIN CORE V7 PRO FINAL (Montreal QC)
+            LICENSE NETSECUREPRO.CA // GEMIN CORE V7 PRO FINAL (VERSION FR) (Montreal QC)
         </div>
         <div style="font-size:0.7rem; color:#38bdf8; font-family:monospace; margin-top:4px;">
-            IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025
+            IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025 // VERSION FR 🇫🇷
         </div>
     </header>
 
@@ -498,6 +498,7 @@ class MobileControlHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             data = {
                 "service": "Z-CORE G7 Mobile Web Control",
                 "core_version": "GEMIN CORE V7 PRO FINAL",
+                "app_edition": "VERSION FR 🇫🇷",
                 "license": "LICENSE NETSECUREPRO.CA",
                 "ia_logic_signature": "IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025",
                 "gatekeeper": GATEKEEPER,
@@ -522,6 +523,63 @@ class MobileControlHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(json.dumps(analysis, indent=2).encode("utf-8"))
+            return
+
+        if path in ["/device_config.html", "/api/device_config.html"]:
+            candidates = [
+                "app/src/main/assets/device_configuration_data.html",
+                os.path.join(os.path.dirname(__file__), "app/src/main/assets/device_configuration_data.html"),
+                "/app/src/main/assets/device_configuration_data.html"
+            ]
+            content = ""
+            for p in candidates:
+                if os.path.exists(p):
+                    with open(p, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    break
+            if not content:
+                content = "<h1>Fichier device_configuration_data.html introuvable</h1>"
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(content.encode("utf-8"))
+            return
+
+        if path == "/api/device_config":
+            device_data = {
+                "device_name": "Samsung Galaxy S22",
+                "model": "SM-S901W",
+                "product": "r0qcsx",
+                "device_code": "r0q",
+                "android_id": "3867290799904350142",
+                "imei": "354818254529107",
+                "serial_number": "r0q:R3CT60MHGWL",
+                "region": "fr-CA",
+                "timezone": "America/Toronto",
+                "hardware": "Qualcomm Snapdragon (8 cores)",
+                "total_ram_bytes": 7580258304,
+                "display": "1080x2340 px (480 DPI, smallest width 360px)",
+                "radio_firmware": "S901WVLU3CWGI,S901WVLU3CWGI",
+                "bootloader_firmware": "S901WVLU3CWGI",
+                "build_fingerprint": "samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys",
+                "android_sdk": 33,
+                "security_patch": "2023-08-01",
+                "google_play_services": "233515045",
+                "sim_operator": "Fido Solutions (MCC 302 / MNC 370)",
+                "cell_operator": "Fido / Rogers (MCC 302 / MNC 720)",
+                "truncated_imsi": "302370507900000",
+                "phone_number": "+1 438 985-5041",
+                "audio_pro": True,
+                "strongbox_keystore_version": 4,
+                "hardware_keystore_version": 100,
+                "fmc_oem_key": "FMC"
+            }
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(json.dumps(device_data, indent=2).encode("utf-8"))
             return
 
         if path == "/api/logs":
