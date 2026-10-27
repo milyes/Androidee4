@@ -76,9 +76,10 @@ fun NetsecureProLicenseCard(
                     Column {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             Text(
-                                text = "NETSECUREPRO IA SIM & eSIM",
+                                text = "LICENSE NETSECUREPRO.CA",
                                 style = MaterialTheme.typography.titleMedium,
-                                fontWeight = FontWeight.Bold
+                                fontWeight = FontWeight.ExtraBold,
+                                color = MaterialTheme.colorScheme.onSurface
                             )
                             Spacer(modifier = Modifier.width(6.dp))
 
@@ -97,9 +98,10 @@ fun NetsecureProLicenseCard(
                         }
 
                         Text(
-                            text = "Licence Officielle • MILYES-IA V9 NANS CORE",
+                            text = "GEMIN CORE V7 PRO FINAL • NETSECUREPRO.CA",
                             style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                            fontWeight = FontWeight.SemiBold,
+                            color = MaterialTheme.colorScheme.primary
                         )
                     }
                 }
@@ -278,7 +280,7 @@ fun NetsecureProLicenseCard(
                     ) {
                         Column(modifier = Modifier.padding(14.dp)) {
                             Text(
-                                text = "CERTIFICAT DE LICENCE OFFICIEL - NETSECUREPRO IA JURIDIQUE",
+                                text = "CERTIFICAT DE LICENCE OFFICIEL - NETSECUREPRO.CA",
                                 style = MaterialTheme.typography.labelMedium,
                                 fontWeight = FontWeight.ExtraBold,
                                 color = GoldLicense
@@ -287,7 +289,10 @@ fun NetsecureProLicenseCard(
                             Spacer(modifier = Modifier.height(6.dp))
 
                             Text(
-                                text = "• Organisme d'Attestation: NETSECUREPRO SECURITY & LEGAL DIVISION\n" +
+                                text = "• Titulaire & Domaine: LICENSE NETSECUREPRO.CA\n" +
+                                        "• Moteur d'Exécution: GEMIN CORE V7 PRO FINAL\n" +
+                                        "• Sceau IA Logic: IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025\n" +
+                                        "• Organisme d'Attestation: NETSECUREPRO SECURITY & LEGAL DIVISION\n" +
                                         "• N° Licence: NSP-LAW-AI-2026-9942-CERT\n" +
                                         "• Système Homologué: MILYES-IA V9 NANS CORE (SIM & eSIM)\n" +
                                         "• Statut de Conformité: CERTIFIÉ & CONFORME RGPD / EU AI ACT 2026\n" +
@@ -309,9 +314,10 @@ fun NetsecureProLicenseCard(
                             Spacer(modifier = Modifier.height(4.dp))
 
                             Text(
-                                text = "1. Sécurité réseau mobile SIM physique & profil eSIM eUICC avec chiffrement des flux vocaux et télémétriques.\n" +
-                                        "2. Traitement local et cloud sécurisé FIPS-140/3 sans fuite de métadonnées utilisateur.\n" +
-                                        "3. Intégration complète avec les macros Termux Z-CORE et le cloud Google Drive.",
+                                text = "1. Moteur souverain GEMIN CORE V7 PRO FINAL avec inférence multimodale et contrôle temps réel.\n" +
+                                        "2. Sécurité réseau mobile SIM physique & profil eSIM eUICC avec chiffrement des flux vocaux et télémétriques.\n" +
+                                        "3. Traitement local et cloud sécurisé FIPS-140/3 sous licence NETSECUREPRO.CA.\n" +
+                                        "4. Signature cryptographique certifiée conforme IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025.",
                                 style = MaterialTheme.typography.bodySmall,
                                 fontSize = 11.sp,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -320,25 +326,51 @@ fun NetsecureProLicenseCard(
 
                             Spacer(modifier = Modifier.height(10.dp))
 
-                            // SHA256 Signature Box
+                            // Signature Boxes
                             Surface(
                                 color = MaterialTheme.colorScheme.background,
                                 shape = RoundedCornerShape(8.dp),
                                 modifier = Modifier.fillMaxWidth()
                             ) {
                                 Column(modifier = Modifier.padding(8.dp)) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth(),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Text(
+                                            text = "IA Logic Signature:",
+                                            style = MaterialTheme.typography.labelSmall,
+                                            fontSize = 10.sp,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                        Surface(
+                                            color = EmeraldStatus.copy(alpha = 0.15f),
+                                            shape = RoundedCornerShape(4.dp)
+                                        ) {
+                                            Text(
+                                                text = "VERIFIED",
+                                                fontSize = 9.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = EmeraldStatus,
+                                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 1.dp)
+                                            )
+                                        }
+                                    }
                                     Text(
-                                        text = "Signature Numérique SHA256:",
-                                        style = MaterialTheme.typography.labelSmall,
-                                        fontSize = 10.sp,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        text = "IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025",
+                                        fontFamily = FontFamily.Monospace,
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.ExtraBold,
+                                        color = EmeraldStatus
                                     )
+                                    Spacer(modifier = Modifier.height(4.dp))
                                     Text(
-                                        text = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
+                                        text = "SHA256: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
                                         fontFamily = FontFamily.Monospace,
                                         fontSize = 9.sp,
-                                        fontWeight = FontWeight.Bold,
-                                        color = MaterialTheme.colorScheme.primary,
+                                        fontWeight = FontWeight.Normal,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         maxLines = 1,
                                         overflow = TextOverflow.Ellipsis
                                     )

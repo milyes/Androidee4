@@ -355,6 +355,227 @@ fun IA22SessionCard(
                             )
                         }
                     }
+
+                    // Launcher Host Local Proxy Command Banner
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFF0F172A),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF3B82F6).copy(alpha = 0.5f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                    Icon(Icons.Filled.Terminal, contentDescription = null, tint = Color(0xFF38BDF8), modifier = Modifier.size(14.dp))
+                                    Text(
+                                        text = "Launcher Host Local Proxy",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+                                Surface(
+                                    shape = RoundedCornerShape(4.dp),
+                                    color = Color(0xFF3B82F6).copy(alpha = 0.2f)
+                                ) {
+                                    Text(
+                                        text = "AUTO CLOUDFLARE",
+                                        fontSize = 9.sp,
+                                        fontWeight = FontWeight.Black,
+                                        color = Color(0xFF38BDF8),
+                                        modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                    )
+                                }
+                            }
+
+                            Text(
+                                text = "bash launcher.hostlocalproxy.sh --mode auto --tunnel cloudflare",
+                                fontSize = 10.sp,
+                                color = Color(0xFF38BDF8),
+                                fontFamily = FontFamily.Monospace,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                FilledTonalButton(
+                                    onClick = {
+                                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                                        val clip = ClipData.newPlainText("Launcher Host Local Proxy", "bash launcher.hostlocalproxy.sh --mode auto --tunnel cloudflare")
+                                        clipboard.setPrimaryClip(clip)
+                                        Toast.makeText(context, if (isFr) "Commande copiée !" else "Command copied!", Toast.LENGTH_SHORT).show()
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    shape = RoundedCornerShape(6.dp),
+                                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(Icons.Filled.ContentCopy, contentDescription = null, modifier = Modifier.size(12.dp))
+                                    Spacer(Modifier.width(4.dp))
+                                    Text(if (isFr) "Copier" else "Copy", fontSize = 10.sp)
+                                }
+
+                                Button(
+                                    onClick = {
+                                        val script = viewModel.predefinedScripts.value
+                                            .find { it.id == "launcher_hostlocalproxy" }
+                                        if (script != null) {
+                                            viewModel.executePredefinedScript(script, mapOf("mode" to "auto", "tunnel" to "cloudflare"))
+                                            Toast.makeText(context, if (isFr) "Exécution du launcher..." else "Executing launcher...", Toast.LENGTH_SHORT).show()
+                                        }
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    shape = RoundedCornerShape(6.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2563EB)),
+                                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(Icons.Filled.PlayArrow, contentDescription = null, modifier = Modifier.size(12.dp))
+                                    Spacer(Modifier.width(4.dp))
+                                    Text(if (isFr) "Lancer (Auto)" else "Launch (Auto)", fontSize = 10.sp)
+                                }
+                            }
+                        }
+                    }
+
+                    // Section Stratégie USB & Serveur de Contrôle Web Mobile (Port 8081)
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFF0F172A),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFF10B981).copy(alpha = 0.5f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(10.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                    Icon(Icons.Filled.Usb, contentDescription = null, tint = Color(0xFF10B981), modifier = Modifier.size(14.dp))
+                                    Text(
+                                        text = if (isFr) "Serveur Contrôle Web Mobile (8081)" else "Mobile Web Control Server (8081)",
+                                        fontSize = 11.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color.White
+                                    )
+                                }
+                                Surface(
+                                    shape = RoundedCornerShape(4.dp),
+                                    color = Color(0xFF10B981).copy(alpha = 0.2f)
+                                ) {
+                                    Text(
+                                        text = "USB TETHERING ★ OPTIMAL",
+                                        fontSize = 9.sp,
+                                        fontWeight = FontWeight.Black,
+                                        color = Color(0xFF10B981),
+                                        modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                    )
+                                }
+                            }
+
+                            Text(
+                                text = "Stratégie : USB Tethering RNDIS (Latence < 1ms, 480 Mbps+, Zéro jitter)",
+                                fontSize = 10.sp,
+                                color = Color(0xFF34D399),
+                                fontFamily = FontFamily.Monospace,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis
+                            )
+
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                Button(
+                                    onClick = {
+                                        try {
+                                            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("http://127.0.0.1:8081/mobile_control.html"))
+                                            context.startActivity(intent)
+                                        } catch (e: Exception) {
+                                            Toast.makeText(context, "Erreur ouverture: ${e.message}", Toast.LENGTH_SHORT).show()
+                                        }
+                                    },
+                                    modifier = Modifier.weight(1.3f),
+                                    shape = RoundedCornerShape(6.dp),
+                                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF059669)),
+                                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(Icons.Filled.Smartphone, contentDescription = null, modifier = Modifier.size(12.dp))
+                                    Spacer(Modifier.width(4.dp))
+                                    Text(if (isFr) "Ouvrir Web Mobile" else "Open Mobile Web", fontSize = 10.sp)
+                                }
+
+                                OutlinedButton(
+                                    onClick = {
+                                        val script = viewModel.predefinedScripts.value
+                                            .find { it.id == "usb_devices_and_strategy_audit" }
+                                        if (script != null) {
+                                            viewModel.executePredefinedScript(script)
+                                            Toast.makeText(context, if (isFr) "Audit USB en cours..." else "Auditing USB devices...", Toast.LENGTH_SHORT).show()
+                                        }
+                                    },
+                                    modifier = Modifier.weight(1f),
+                                    shape = RoundedCornerShape(6.dp),
+                                    contentPadding = PaddingValues(horizontal = 6.dp, vertical = 4.dp)
+                                ) {
+                                    Icon(Icons.Filled.Analytics, contentDescription = null, modifier = Modifier.size(12.dp))
+                                    Spacer(Modifier.width(4.dp))
+                                    Text(if (isFr) "Audit USB" else "USB Audit", fontSize = 10.sp)
+                                }
+                            }
+                        }
+                    }
+
+                    // Badge Officiel GEMIN CORE V7 PRO FINAL & NETSECUREPRO.CA
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFF0F172A).copy(alpha = 0.85f),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Color(0xFFD97706).copy(alpha = 0.4f)),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Column(modifier = Modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                                    Icon(Icons.Filled.VerifiedUser, contentDescription = null, tint = Color(0xFFF59E0B), modifier = Modifier.size(13.dp))
+                                    Text(
+                                        text = "LICENSE NETSECUREPRO.CA",
+                                        fontSize = 10.sp,
+                                        fontWeight = FontWeight.Bold,
+                                        color = Color(0xFFF59E0B)
+                                    )
+                                }
+                                Surface(
+                                    shape = RoundedCornerShape(4.dp),
+                                    color = Color(0xFF10B981).copy(alpha = 0.2f)
+                                ) {
+                                    Text(
+                                        text = "GEMIN CORE V7 PRO FINAL",
+                                        fontSize = 8.sp,
+                                        fontWeight = FontWeight.Black,
+                                        color = Color(0xFF10B981),
+                                        modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                    )
+                                }
+                            }
+                            Text(
+                                text = "IA_LOGIC_SINGNATURE:ZOUBIROU-IA-2025",
+                                fontSize = 9.sp,
+                                fontFamily = FontFamily.Monospace,
+                                fontWeight = FontWeight.Bold,
+                                color = Color(0xFF38BDF8)
+                            )
+                        }
+                    }
                 }
             }
 

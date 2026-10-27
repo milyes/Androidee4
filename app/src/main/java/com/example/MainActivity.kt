@@ -24,6 +24,7 @@ import com.example.ui.screens.CloudSyncScreen
 import com.example.ui.screens.ContactsScreen
 import com.example.ui.screens.LoginScreen
 import com.example.ui.screens.RecorderVaultScreen
+import com.example.ui.screens.VoiceRecorderScreen
 import com.example.ui.screens.TermuxMacroScreen
 import com.example.ui.screens.LiveStreamScreen
 import com.example.ui.theme.AudioSyncHubTheme
@@ -181,6 +182,17 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
                 color = MaterialTheme.colorScheme.onPrimaryContainer
               )
             }
+          }
+
+          IconButton(
+            onClick = { viewModel.setTab(NavigationTab.VOICE_RECORDER) },
+            modifier = Modifier.testTag("top_bar_voice_recorder_btn")
+          ) {
+            Icon(
+              imageVector = if (currentTab == NavigationTab.VOICE_RECORDER) Icons.Filled.Mic else Icons.Outlined.Mic,
+              contentDescription = "Enregistreur Vocal Direct (Micro)",
+              tint = if (currentTab == NavigationTab.VOICE_RECORDER) androidx.compose.ui.graphics.Color(0xFFDC2626) else MaterialTheme.colorScheme.primary
+            )
           }
 
           IconButton(
@@ -352,6 +364,7 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
         when (tab) {
           NavigationTab.LOGIN -> LoginScreen(viewModel = viewModel)
           NavigationTab.RECORDER_VAULT -> RecorderVaultScreen(viewModel = viewModel)
+          NavigationTab.VOICE_RECORDER -> VoiceRecorderScreen(viewModel = viewModel)
           NavigationTab.CLOUD_SYNC -> CloudSyncScreen(viewModel = viewModel)
           NavigationTab.CONTACTS -> ContactsScreen(viewModel = viewModel)
           NavigationTab.LIVE_STREAM -> LiveStreamScreen(viewModel = viewModel)

@@ -1,0 +1,79 @@
+[2026-10-13T13:32:57+00:00] → Nettoyage anciens process proxy locaux...
+[2026-10-13T13:32:57+00:00] → Vérification des endpoints locaux (8080 & 8081)...
+[2026-10-13T13:32:57+00:00] ✓ Service 127.0.0.1:8080 actif (MILYES AI Web - NANS V9.79)
+[2026-10-13T13:32:57+00:00] ⚡ Service local 127.0.0.1:8081 : Relais proxy configuré
+[2026-10-13T13:32:57+00:00] → Interrogation du Tunnel Cloudflare: https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:32:57+00:00] ✓ Tunnel Cloudflare JOIGNABLE : HTTP/2 200 
+[2026-10-13T13:32:57+00:00] ✓ Logic Cover (/logic_cover.html) VERIFIÉ [979V11 Gatekeeper OK]
+[2026-10-13T13:32:57+00:00] ✓ USB Live (/index_usb.html) VERIFIÉ [Montreal QC]
+[2026-10-13T13:32:57+00:00] → Signal Quality: 98% - QUIC OK
+[2026-10-13T13:32:57+00:00] ============================================================
+[2026-10-13T13:32:57+00:00] [READY] HOST LOCAL PROXY ORCHESTRATEUR EN DIRECT
+[2026-10-13T13:32:57+00:00]   Point d'accès public : https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:32:57+00:00]   Logic Cover : https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html
+[2026-10-13T13:32:57+00:00]   USB UI : https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html
+[2026-10-13T13:32:57+00:00]   Mode: auto | Statut Tunnel: ONLINE | Gatekeeper: 979V11
+[2026-10-13T13:32:57+00:00] ============================================================
+[2026-10-13T13:51:51+00:00] → Nettoyage anciens process proxy locaux...
+[2026-10-13T13:51:51+00:00] → Vérification des endpoints locaux (8080 & 8081)...
+[2026-10-13T13:51:51+00:00] ✓ Service 127.0.0.1:8080 actif (MILYES AI Web - NANS V9.79)
+[2026-10-13T13:51:51+00:00] ⚡ Service local 127.0.0.1:8081 : Relais proxy configuré
+[2026-10-13T13:51:51+00:00] → Interrogation du Tunnel Cloudflare: https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:51:51+00:00] ✓ Tunnel Cloudflare JOIGNABLE : HTTP/2 200 
+[2026-10-13T13:51:51+00:00] ✓ Logic Cover (/logic_cover.html) VERIFIÉ [979V11 Gatekeeper OK]
+[2026-10-13T13:51:51+00:00] ✓ USB Live (/index_usb.html) VERIFIÉ [Montreal QC]
+[2026-10-13T13:51:51+00:00] → Signal Quality: 98% - QUIC OK
+[2026-10-13T13:51:51+00:00] ============================================================
+[2026-10-13T13:51:51+00:00] [READY] HOST LOCAL PROXY ORCHESTRATEUR EN DIRECT
+[2026-10-13T13:51:51+00:00]   Point d'accès public : https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:51:51+00:00]   Logic Cover : https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html
+[2026-10-13T13:51:51+00:00]   USB UI : https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html
+[2026-10-13T13:51:51+00:00]   Mode: auto | Statut Tunnel: ONLINE | Gatekeeper: 979V11
+[2026-10-13T13:51:51+00:00] ============================================================
+[2026-10-13T13:54:45+00:00] → Nettoyage anciens process proxy locaux...
+[2026-10-13T13:54:45+00:00] → Vérification des endpoints locaux (8080 & 8081)...
+[2026-10-13T13:54:45+00:00] ✓ Service 127.0.0.1:8080 actif (MILYES AI Web - NANS V9.79)
+[2026-10-13T13:54:45+00:00] ✓ Service 127.0.0.1:8081 actif (Z-CORE G7 v0.12 - Contrôle Web Mobile)
+[2026-10-13T13:54:45+00:00] → Interrogation du Tunnel Cloudflare: https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:54:45+00:00] ✓ Tunnel Cloudflare JOIGNABLE : HTTP/2 200 
+[2026-10-13T13:54:45+00:00] ✓ Logic Cover (/logic_cover.html) VERIFIÉ [979V11 Gatekeeper OK]
+[2026-10-13T13:54:45+00:00] ✓ USB Live (/index_usb.html) VERIFIÉ [Montreal QC]
+[2026-10-13T13:54:45+00:00] → Signal Quality: 98% - QUIC OK
+[2026-10-13T13:54:45+00:00] ============================================================
+[2026-10-13T13:54:45+00:00] [READY] HOST LOCAL PROXY ORCHESTRATEUR EN DIRECT
+[2026-10-13T13:54:45+00:00]   Point d'accès public : https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T13:54:45+00:00]   Logic Cover : https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html
+[2026-10-13T13:54:45+00:00]   USB UI : https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html
+[2026-10-13T13:54:45+00:00]   Mode: auto | Statut Tunnel: ONLINE | Gatekeeper: 979V11
+[2026-10-13T13:54:45+00:00] ============================================================
+[2026-10-13T14:00:40+00:00] → Nettoyage anciens process proxy locaux...
+[2026-10-13T14:00:40+00:00] → Vérification des endpoints locaux (8080 & 8081)...
+[2026-10-13T14:00:40+00:00] ✓ Service 127.0.0.1:8080 actif (MILYES AI Web - NANS V9.79)
+[2026-10-13T14:00:40+00:00] ✓ Service 127.0.0.1:8081 actif (Z-CORE G7 v0.12 - Contrôle Web Mobile)
+[2026-10-13T14:00:40+00:00] → Interrogation du Tunnel Cloudflare: https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T14:00:40+00:00] ✓ Tunnel Cloudflare JOIGNABLE : HTTP/2 200 
+[2026-10-13T14:00:40+00:00] ✓ Logic Cover (/logic_cover.html) VERIFIÉ [979V11 Gatekeeper OK]
+[2026-10-13T14:00:40+00:00] ✓ USB Live (/index_usb.html) VERIFIÉ [Montreal QC]
+[2026-10-13T14:00:40+00:00] → Signal Quality: 98% - QUIC OK
+[2026-10-13T14:00:40+00:00] ============================================================
+[2026-10-13T14:00:40+00:00] [READY] HOST LOCAL PROXY ORCHESTRATEUR EN DIRECT
+[2026-10-13T14:00:40+00:00]   Point d'accès public : https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T14:00:40+00:00]   Logic Cover : https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html
+[2026-10-13T14:00:40+00:00]   USB UI : https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html
+[2026-10-13T14:00:40+00:00]   Mode: auto | Statut Tunnel: ONLINE | Gatekeeper: 979V11
+[2026-10-13T14:00:40+00:00] ============================================================
+[2026-10-13T17:28:07+00:00] → Nettoyage anciens process proxy locaux...
+[2026-10-13T17:28:07+00:00] → Vérification des endpoints locaux (8080 & 8081)...
+[2026-10-13T17:28:07+00:00] ✓ Service 127.0.0.1:8080 actif (MILYES AI Web - NANS V9.79)
+[2026-10-13T17:28:07+00:00] ⚡ Démarrage du serveur de contrôle web mobile sur 127.0.0.1:8081...
+[2026-10-13T17:28:07+00:00] ✓ Service 127.0.0.1:8081 DÉMARRÉ (Z-CORE G7 - Contrôle Web Mobile & Analyseur USB)
+[2026-10-13T17:28:07+00:00] → Interrogation du Tunnel Cloudflare: https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T17:28:07+00:00] ⚠️ Avertissement : Le tunnel distant a répondu avec latence ou hors-ligne
+[2026-10-13T17:28:07+00:00] → Signal Quality: 98% - QUIC OK
+[2026-10-13T17:28:07+00:00] ============================================================
+[2026-10-13T17:28:07+00:00] [READY] HOST LOCAL PROXY ORCHESTRATEUR EN DIRECT
+[2026-10-13T17:28:07+00:00]   Point d'accès public : https://retailers-mitchell-customs-rotation.trycloudflare.com
+[2026-10-13T17:28:07+00:00]   Logic Cover : https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html
+[2026-10-13T17:28:07+00:00]   USB UI : https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html
+[2026-10-13T17:28:07+00:00]   Mode: auto | Statut Tunnel: OFFLINE | Gatekeeper: 979V11
+[2026-10-13T17:28:07+00:00] ============================================================

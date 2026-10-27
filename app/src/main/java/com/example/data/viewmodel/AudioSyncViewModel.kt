@@ -28,6 +28,7 @@ import kotlinx.coroutines.launch
 enum class NavigationTab {
     LOGIN,
     RECORDER_VAULT,
+    VOICE_RECORDER,
     CLOUD_SYNC,
     CONTACTS,
     LIVE_STREAM,

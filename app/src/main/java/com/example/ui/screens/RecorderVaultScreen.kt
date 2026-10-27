@@ -220,6 +220,21 @@ fun RecorderVaultScreen(
                             )
                         }
                     }
+
+                    FilledTonalButton(
+                        onClick = { viewModel.setTab(NavigationTab.VOICE_RECORDER) },
+                        shape = RoundedCornerShape(10.dp),
+                        colors = ButtonDefaults.filledTonalButtonColors(
+                            containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.15f),
+                            contentColor = MaterialTheme.colorScheme.primary
+                        ),
+                        contentPadding = PaddingValues(horizontal = 10.dp, vertical = 6.dp),
+                        modifier = Modifier.testTag("open_voice_recorder_screen_btn")
+                    ) {
+                        Icon(Icons.Filled.Mic, contentDescription = null, modifier = Modifier.size(14.dp))
+                        Spacer(Modifier.width(4.dp))
+                        Text(if (appLanguage == com.example.ui.theme.AppLanguage.FRENCH) "Studio Micro" else "Voice Studio", fontSize = 11.sp, fontWeight = FontWeight.Bold)
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(14.dp))
