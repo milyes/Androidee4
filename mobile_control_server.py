@@ -333,9 +333,14 @@ HTML_MOBILE_DASHBOARD = """<!DOCTYPE html>
             <div class="card-title">
                 <span>🖥️</span> Console Orchestrateur & Logs
             </div>
-            <button onclick="fetchLogs()" class="sec" style="padding:4px 8px; font-size:0.7rem;">
-                Actualiser
-            </button>
+            <div style="display:flex; gap:6px; align-items:center;">
+                <button id="btn-autoscroll" onclick="toggleAutoScroll()" class="primary" style="padding:4px 8px; font-size:0.7rem;">
+                    ⚡ Auto-Scroll : FIXÉ
+                </button>
+                <button onclick="fetchLogs()" class="sec" style="padding:4px 8px; font-size:0.7rem;">
+                    Actualiser
+                </button>
+            </div>
         </div>
         <div class="terminal" id="term-logs">Initialisation du moniteur Z-CORE G7...</div>
     </div>
@@ -370,6 +375,12 @@ HTML_MOBILE_DASHBOARD = """<!DOCTYPE html>
             <a href="https://retailers-mitchell-customs-rotation.trycloudflare.com/index_usb.html" target="_blank" class="btn sec" style="justify-content:flex-start;">
                 <span>📱</span> Ouvrir USB Web UI (/index_usb.html)
             </a>
+            <a href="/mobile_devices.html" target="_blank" class="btn sec" style="justify-content:flex-start;">
+                <span>📲</span> Appareils Mobiles Injectés (/mobile_devices.html)
+            </a>
+            <a href="/device_config.html" target="_blank" class="btn sec" style="justify-content:flex-start;">
+                <span>📋</span> Fiche Configuration S22 (/device_config.html)
+            </a>
             <a href="https://retailers-mitchell-customs-rotation.trycloudflare.com/logic_cover.html" target="_blank" class="btn sec" style="justify-content:flex-start;">
                 <span>🛡️</span> Ouvrir Logic Cover (/logic_cover.html)
             </a>
@@ -396,7 +407,36 @@ HTML_MOBILE_DASHBOARD = """<!DOCTYPE html>
         </a>
     </nav>
 
+    <!-- FLOATING FIXED AUTO-SCROLL INDICATOR -->
+    <div id="autoscroll-fixed-badge" onclick="toggleAutoScroll()" style="position:fixed; bottom:72px; right:14px; background:#10b981; color:#030712; padding:7px 13px; border-radius:20px; font-size:0.75rem; font-weight:800; box-shadow:0 4px 14px rgba(16,185,129,0.45); z-index:999; display:flex; align-items:center; gap:6px; cursor:pointer; user-select:none; border:1px solid #34d399;">
+        <span>🔒</span>
+        <span id="badge-autoscroll-text">AUTO-SCROLL : FIXÉ</span>
+    </div>
+
     <script>
+        let autoScrollFixed = true;
+
+        function toggleAutoScroll() {
+            autoScrollFixed = !autoScrollFixed;
+            const btn = document.getElementById('btn-autoscroll');
+            const badge = document.getElementById('autoscroll-fixed-badge');
+            const badgeText = document.getElementById('badge-autoscroll-text');
+            if (btn) {
+                btn.innerText = autoScrollFixed ? "⚡ Auto-Scroll : FIXÉ" : "🔓 Auto-Scroll : OFF";
+                btn.className = autoScrollFixed ? "primary" : "sec";
+            }
+            if (badge && badgeText) {
+                badge.style.background = autoScrollFixed ? "#10b981" : "#334155";
+                badge.style.color = autoScrollFixed ? "#030712" : "#94a3b8";
+                badge.style.borderColor = autoScrollFixed ? "#34d399" : "#475569";
+                badgeText.innerText = autoScrollFixed ? "AUTO-SCROLL : FIXÉ" : "AUTO-SCROLL : OFF";
+            }
+            if (autoScrollFixed) {
+                const term = document.getElementById('term-logs');
+                if (term) term.scrollTop = term.scrollHeight;
+            }
+        }
+
         async function fetchStatus() {
             try {
                 const res = await fetch('/api/status');
@@ -414,7 +454,9 @@ HTML_MOBILE_DASHBOARD = """<!DOCTYPE html>
                 const res = await fetch('/api/logs');
                 const text = await res.text();
                 term.innerText = text || "Aucun log pour le moment.";
-                term.scrollTop = term.scrollHeight;
+                if (autoScrollFixed) {
+                    term.scrollTop = term.scrollHeight;
+                }
             } catch (e) {
                 term.innerText = "Erreur lecture des logs: " + e.message;
             }
@@ -467,7 +509,7 @@ class MobileControlHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_HEAD(self):
         parsed = urlparse(self.path)
         path = parsed.path
-        if path in ["/", "/index.html", "/mobile_control.html"]:
+        if path in ["/", "/index.html", "/mobile_control.html", "/device_config.html", "/mobile_devices.html"]:
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Cache-Control", "no-cache")
@@ -546,6 +588,76 @@ class MobileControlHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write(content.encode("utf-8"))
             return
 
+        if path in ["/mobile_devices.html", "/api/mobile_devices.html"]:
+            candidates = [
+                "app/src/main/assets/mobile_devices_history.html",
+                os.path.join(os.path.dirname(__file__), "app/src/main/assets/mobile_devices_history.html"),
+                "/app/src/main/assets/mobile_devices_history.html"
+            ]
+            content = ""
+            for p in candidates:
+                if os.path.exists(p):
+                    with open(p, "r", encoding="utf-8") as f:
+                        content = f.read()
+                    break
+            if not content:
+                content = "<h1>Fichier mobile_devices_history.html introuvable</h1>"
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(content.encode("utf-8"))
+            return
+
+        if path == "/api/mobile_devices":
+            injected_payload = {
+                "account": {
+                    "name": "Ilyes Zoubirou",
+                    "username": "ilyes.zoubirou",
+                    "profile_id": "100050795443393",
+                    "generated_at": "2020-10-17T16:20:00-04:00",
+                    "source": "Facebook Mobile Devices Export (mobile_devices.html)"
+                },
+                "devices": [
+                    {
+                        "os": "Appareil Android 10",
+                        "recorded_at": "17 oct. 2020 à 11:08",
+                        "type": "SM-G988W",
+                        "label": "Galaxy S20 Ultra 5G",
+                        "device_id": "25b50a79-a376-4c39-84bb-967e48ba241d",
+                        "advertising_id": "32fe168e-4d34-4e0c-8e67-4ab2c289750a",
+                        "notification_tokens_masked": ["eyJw********************", "eyJw********************"],
+                        "locale": "fr_FR"
+                    },
+                    {
+                        "os": "Appareil Android 10",
+                        "recorded_at": "17 oct. 2020 à 14:12",
+                        "type": "SM-G988W",
+                        "label": "Galaxy S20 Ultra 5G",
+                        "device_id": "3f8712d2-af4a-4a68-8224-65a50917ba6c",
+                        "advertising_id": "fe80f423-7ba1-4664-a28e-e8b92d9e5626",
+                        "notification_tokens_masked": [],
+                        "locale": "fr_FR"
+                    },
+                    {
+                        "os": "Appareil Android 9",
+                        "recorded_at": "23 sept. 2020 à 10:12",
+                        "type": "LG-H873",
+                        "label": "LG G6 Canada",
+                        "device_id": "8f6eb0ce-fdf1-45e5-89e2-51738bede4e1",
+                        "advertising_id": "4e857c50-0f47-4a0b-9c5c-1bac013e4a74",
+                        "notification_tokens_masked": [],
+                        "locale": "fr_CA"
+                    }
+                ]
+            }
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Access-Control-Allow-Origin", "*")
+            self.end_headers()
+            self.wfile.write(json.dumps(injected_payload, indent=2, ensure_ascii=False).encode("utf-8"))
+            return
+
         if path == "/api/device_config":
             device_data = {
                 "device_name": "Samsung Galaxy S22",
@@ -573,13 +685,39 @@ class MobileControlHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
                 "audio_pro": True,
                 "strongbox_keystore_version": 4,
                 "hardware_keystore_version": 100,
-                "fmc_oem_key": "FMC"
+                "fmc_oem_key": "FMC",
+                "injected_mobile_devices": [
+                    {
+                        "type": "SM-G988W",
+                        "os": "Android 10",
+                        "recorded_at": "17 oct. 2020 à 11:08",
+                        "device_id": "25b50a79-a376-4c39-84bb-967e48ba241d",
+                        "advertising_id": "32fe168e-4d34-4e0c-8e67-4ab2c289750a",
+                        "locale": "fr_FR"
+                    },
+                    {
+                        "type": "SM-G988W",
+                        "os": "Android 10",
+                        "recorded_at": "17 oct. 2020 à 14:12",
+                        "device_id": "3f8712d2-af4a-4a68-8224-65a50917ba6c",
+                        "advertising_id": "fe80f423-7ba1-4664-a28e-e8b92d9e5626",
+                        "locale": "fr_FR"
+                    },
+                    {
+                        "type": "LG-H873",
+                        "os": "Android 9",
+                        "recorded_at": "23 sept. 2020 à 10:12",
+                        "device_id": "8f6eb0ce-fdf1-45e5-89e2-51738bede4e1",
+                        "advertising_id": "4e857c50-0f47-4a0b-9c5c-1bac013e4a74",
+                        "locale": "fr_CA"
+                    }
+                ]
             }
             self.send_response(200)
             self.send_header("Content-Type", "application/json; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
-            self.wfile.write(json.dumps(device_data, indent=2).encode("utf-8"))
+            self.wfile.write(json.dumps(device_data, indent=2, ensure_ascii=False).encode("utf-8"))
             return
 
         if path == "/api/logs":

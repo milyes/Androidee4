@@ -521,6 +521,9 @@ fun LiveStreamScreen(
                                 )
                                 // Force software rendering on virtualized emulators to prevent MESA rendernode failure
                                 setLayerType(android.view.View.LAYER_TYPE_SOFTWARE, null)
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                    setRendererPriorityPolicy(WebView.RENDERER_PRIORITY_IMPORTANT, false)
+                                }
 
                                 settings.apply {
                                     javaScriptEnabled = true
@@ -532,6 +535,9 @@ fun LiveStreamScreen(
                                     loadWithOverviewMode = true
                                     allowFileAccess = true
                                     cacheMode = WebSettings.LOAD_DEFAULT
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        safeBrowsingEnabled = false
+                                    }
                                 }
                                 webChromeClient = WebChromeClient()
                                 webViewClient = object : WebViewClient() {
@@ -542,10 +548,13 @@ fun LiveStreamScreen(
                                     override fun onRenderProcessGone(view: WebView?, detail: RenderProcessGoneDetail?): Boolean {
                                         Log.e("LiveStreamScreen", "Chromium render process crashed safely caught. Switching to native player.")
                                         try {
+                                            view?.stopLoading()
+                                            (view?.parent as? ViewGroup)?.removeView(view)
                                             view?.destroy()
                                         } catch (e: Exception) {
                                             // ignore
                                         }
+                                        webViewInstance = null
                                         // Auto-switch to Native VideoView on Chromium crash
                                         useNativePlayer = true
                                         return true // MANDATORY: Returns true to prevent Android terminating host app
@@ -568,6 +577,18 @@ fun LiveStreamScreen(
                                 } else {
                                     view.loadUrl(currentStreamUrl)
                                 }
+                            }
+                        },
+                        onRelease = { view ->
+                            try {
+                                view.stopLoading()
+                                view.onPause()
+                                (view.parent as? ViewGroup)?.removeView(view)
+                                view.destroy()
+                            } catch (_: Exception) {
+                            }
+                            if (webViewInstance === view) {
+                                webViewInstance = null
                             }
                         },
                         modifier = Modifier.fillMaxSize().testTag("webview_video_player")

@@ -22,6 +22,7 @@ import com.example.data.viewmodel.NavigationTab
 import com.example.ui.screens.AiStudioScreen
 import com.example.ui.screens.CloudSyncScreen
 import com.example.ui.screens.ContactsScreen
+import com.example.ui.screens.GoogleDriveSyncScreen
 import com.example.ui.screens.LoginScreen
 import com.example.ui.screens.RecorderVaultScreen
 import com.example.ui.screens.VoiceRecorderScreen
@@ -225,6 +226,17 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
           }
 
           IconButton(
+            onClick = { viewModel.setTab(NavigationTab.GOOGLE_DRIVE_SYNC) },
+            modifier = Modifier.testTag("top_bar_gdrive_sync_btn")
+          ) {
+            Icon(
+              imageVector = if (currentTab == NavigationTab.GOOGLE_DRIVE_SYNC) Icons.Filled.CloudDone else Icons.Outlined.CloudDone,
+              contentDescription = if (appLanguage == AppLanguage.FRENCH) "Statut Synchro Google Drive" else "Google Drive Sync Status",
+              tint = if (currentTab == NavigationTab.GOOGLE_DRIVE_SYNC) androidx.compose.ui.graphics.Color(0xFF4285F4) else MaterialTheme.colorScheme.primary
+            )
+          }
+
+          IconButton(
             onClick = { viewModel.setTab(NavigationTab.LOGIN) },
             modifier = Modifier.testTag("top_bar_account_btn")
           ) {
@@ -316,11 +328,11 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
         )
 
         NavigationBarItem(
-          selected = currentTab == NavigationTab.CLOUD_SYNC,
+          selected = currentTab == NavigationTab.CLOUD_SYNC || currentTab == NavigationTab.GOOGLE_DRIVE_SYNC,
           onClick = { viewModel.setTab(NavigationTab.CLOUD_SYNC) },
           icon = {
             Icon(
-              imageVector = if (currentTab == NavigationTab.CLOUD_SYNC) Icons.Filled.CloudSync else Icons.Outlined.CloudUpload,
+              imageVector = if (currentTab == NavigationTab.CLOUD_SYNC || currentTab == NavigationTab.GOOGLE_DRIVE_SYNC) Icons.Filled.CloudSync else Icons.Outlined.CloudUpload,
               contentDescription = "Google Drive Sync"
             )
           },
@@ -406,6 +418,7 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
           NavigationTab.RECORDER_VAULT -> RecorderVaultScreen(viewModel = viewModel)
           NavigationTab.VOICE_RECORDER -> VoiceRecorderScreen(viewModel = viewModel)
           NavigationTab.CLOUD_SYNC -> CloudSyncScreen(viewModel = viewModel)
+          NavigationTab.GOOGLE_DRIVE_SYNC -> GoogleDriveSyncScreen(viewModel = viewModel)
           NavigationTab.CONTACTS -> ContactsScreen(viewModel = viewModel)
           NavigationTab.LIVE_STREAM -> LiveStreamScreen(viewModel = viewModel)
           NavigationTab.TERMUX_MACROS -> TermuxMacroScreen(viewModel = viewModel)

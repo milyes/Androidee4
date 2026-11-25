@@ -3,7 +3,16 @@ package com.example.ui.components
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Build
+import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import android.webkit.RenderProcessGoneDetail
+import android.webkit.WebResourceError
+import android.webkit.WebResourceRequest
+import android.webkit.WebSettings
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.compose.animation.*
 import androidx.compose.foundation.BorderStroke
@@ -39,6 +48,7 @@ private val DarkSlate = Color(0xFF0F172A)
 
 private enum class ConfigDialogTab {
     STRUCTURED,
+    INJECTED_DEVICES,
     HTML_VIEW,
     CONNECTION_LOGS
 }
@@ -145,15 +155,17 @@ fun DeviceConfigurationDataDialog(
                 Spacer(modifier = Modifier.height(10.dp))
 
                 // Navigation Tabs
-                TabRow(
+                ScrollableTabRow(
                     selectedTabIndex = selectedTab.ordinal,
                     containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
                     contentColor = MaterialTheme.colorScheme.primary,
+                    edgePadding = 4.dp,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Tab(
                         selected = selectedTab == ConfigDialogTab.STRUCTURED,
                         onClick = { selectedTab = ConfigDialogTab.STRUCTURED },
+                        modifier = Modifier.testTag("tab_device_spec"),
                         text = {
                             Text(
                                 text = if (isFr) "Fiche Matériel" else "Hardware Spec",
@@ -163,8 +175,21 @@ fun DeviceConfigurationDataDialog(
                         }
                     )
                     Tab(
+                        selected = selectedTab == ConfigDialogTab.INJECTED_DEVICES,
+                        onClick = { selectedTab = ConfigDialogTab.INJECTED_DEVICES },
+                        modifier = Modifier.testTag("tab_injected_devices"),
+                        text = {
+                            Text(
+                                text = if (isFr) "Injection (3)" else "Injected (3)",
+                                fontSize = 11.5.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    )
+                    Tab(
                         selected = selectedTab == ConfigDialogTab.HTML_VIEW,
                         onClick = { selectedTab = ConfigDialogTab.HTML_VIEW },
+                        modifier = Modifier.testTag("tab_google_html"),
                         text = {
                             Text(
                                 text = if (isFr) "Document Google" else "Google HTML",
@@ -176,6 +201,7 @@ fun DeviceConfigurationDataDialog(
                     Tab(
                         selected = selectedTab == ConfigDialogTab.CONNECTION_LOGS,
                         onClick = { selectedTab = ConfigDialogTab.CONNECTION_LOGS },
+                        modifier = Modifier.testTag("tab_sync_logs"),
                         text = {
                             Text(
                                 text = if (isFr) "Historique Sync" else "Sync History",
@@ -296,19 +322,157 @@ fun DeviceConfigurationDataDialog(
                             }
                         }
 
+                        ConfigDialogTab.INJECTED_DEVICES -> {
+                            var showRawHtmlArchive by remember { mutableStateOf(false) }
+
+                            Column(
+                                modifier = Modifier.fillMaxSize(),
+                                verticalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                Surface(
+                                    color = GoldAccent.copy(alpha = 0.12f),
+                                    shape = RoundedCornerShape(12.dp),
+                                    border = BorderStroke(1.dp, GoldAccent.copy(alpha = 0.4f)),
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Row(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .padding(horizontal = 12.dp, vertical = 8.dp),
+                                        horizontalArrangement = Arrangement.SpaceBetween,
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        Column(modifier = Modifier.weight(1f)) {
+                                            Text(
+                                                text = if (isFr) "Injection Appareils Mobiles • Ilyes Zoubirou" else "Injected Mobile Devices • Ilyes Zoubirou",
+                                                style = MaterialTheme.typography.labelMedium,
+                                                fontWeight = FontWeight.Bold,
+                                                color = GoldAccent
+                                            )
+                                            Text(
+                                                text = "ID: 100050795443393 • Export 17 oct. 2020 (UTC-04:00)",
+                                                fontSize = 10.sp,
+                                                fontFamily = FontFamily.Monospace,
+                                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                                            )
+                                        }
+                                        FilterChip(
+                                            selected = showRawHtmlArchive,
+                                            onClick = { showRawHtmlArchive = !showRawHtmlArchive },
+                                            modifier = Modifier.testTag("toggle_injected_html_chip"),
+                                            label = {
+                                                Text(
+                                                    text = if (showRawHtmlArchive) "Vue Fiches" else "Vue HTML",
+                                                    fontSize = 10.sp,
+                                                    fontWeight = FontWeight.Bold
+                                                )
+                                            }
+                                        )
+                                    }
+                                }
+
+                                if (showRawHtmlArchive) {
+                                    Surface(
+                                        shape = RoundedCornerShape(12.dp),
+                                        border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .fillMaxWidth()
+                                    ) {
+                                        SafeAssetWebView(
+                                            assetUrl = "file:///android_asset/mobile_devices_history.html",
+                                            fallbackTitle = if (isFr) "Archive Appareils Mobiles (Ilyes Zoubirou)" else "Mobile Devices Archive",
+                                            fallbackSummary = "1. SM-G988W (Android 10, 17 oct. 2020 11:08) • ID: 25b50a79-a376-4c39-84bb-967e48ba241d\n" +
+                                                "2. SM-G988W (Android 10, 17 oct. 2020 14:12) • ID: 3f8712d2-af4a-4a68-8224-65a50917ba6c\n" +
+                                                "3. LG-H873 (Android 9, 23 sept. 2020 10:12) • ID: 8f6eb0ce-fdf1-45e5-89e2-51738bede4e1",
+                                            isFr = isFr,
+                                            modifier = Modifier.fillMaxSize()
+                                        )
+                                    }
+                                } else {
+                                    Column(
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .verticalScroll(scrollState),
+                                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                                    ) {
+                                        ConfigSectionCard(
+                                            title = "1. Appareil Android 10 • SM-G988W (17 oct. 2020 à 11:08)",
+                                            icon = Icons.Filled.PhoneAndroid,
+                                            accentColor = SamsungBlue
+                                        ) {
+                                            ConfigDataRow(label = "Type d’appareil", value = "SM-G988W (Galaxy S20 Ultra 5G)", onCopy = null)
+                                            ConfigDataRow(
+                                                label = "ID de l’appareil",
+                                                value = "25b50a79-a376-4c39-84bb-967e48ba241d",
+                                                onCopy = { copyToClipboard("ID Appareil SM-G988W #1", "25b50a79-a376-4c39-84bb-967e48ba241d") }
+                                            )
+                                            ConfigDataRow(
+                                                label = "ID publicitaire",
+                                                value = "32fe168e-4d34-4e0c-8e67-4ab2c289750a",
+                                                onCopy = { copyToClipboard("ID Publicitaire #1", "32fe168e-4d34-4e0c-8e67-4ab2c289750a") }
+                                            )
+                                            ConfigDataRow(
+                                                label = "ID des notifications",
+                                                value = "eyJw******************** (x2 tokens)",
+                                                onCopy = null
+                                            )
+                                            ConfigDataRow(label = "Device Locale", value = "fr_FR", onCopy = null)
+                                        }
+
+                                        ConfigSectionCard(
+                                            title = "2. Appareil Android 10 • SM-G988W (17 oct. 2020 à 14:12)",
+                                            icon = Icons.Filled.PhoneAndroid,
+                                            accentColor = CyanAccent
+                                        ) {
+                                            ConfigDataRow(label = "Type d’appareil", value = "SM-G988W (Galaxy S20 Ultra 5G)", onCopy = null)
+                                            ConfigDataRow(
+                                                label = "ID de l’appareil",
+                                                value = "3f8712d2-af4a-4a68-8224-65a50917ba6c",
+                                                onCopy = { copyToClipboard("ID Appareil SM-G988W #2", "3f8712d2-af4a-4a68-8224-65a50917ba6c") }
+                                            )
+                                            ConfigDataRow(
+                                                label = "ID publicitaire",
+                                                value = "fe80f423-7ba1-4664-a28e-e8b92d9e5626",
+                                                onCopy = { copyToClipboard("ID Publicitaire #2", "fe80f423-7ba1-4664-a28e-e8b92d9e5626") }
+                                            )
+                                            ConfigDataRow(label = "Device Locale", value = "fr_FR", onCopy = null)
+                                        }
+
+                                        ConfigSectionCard(
+                                            title = "3. Appareil Android 9 • LG-H873 (23 sept. 2020 à 10:12)",
+                                            icon = Icons.Filled.Smartphone,
+                                            accentColor = EmeraldSynced
+                                        ) {
+                                            ConfigDataRow(label = "Type d’appareil", value = "LG-H873 (LG G6 Canada)", onCopy = null)
+                                            ConfigDataRow(
+                                                label = "ID de l’appareil",
+                                                value = "8f6eb0ce-fdf1-45e5-89e2-51738bede4e1",
+                                                onCopy = { copyToClipboard("ID Appareil LG-H873", "8f6eb0ce-fdf1-45e5-89e2-51738bede4e1") }
+                                            )
+                                            ConfigDataRow(
+                                                label = "ID publicitaire",
+                                                value = "4e857c50-0f47-4a0b-9c5c-1bac013e4a74",
+                                                onCopy = { copyToClipboard("ID Publicitaire LG-H873", "4e857c50-0f47-4a0b-9c5c-1bac013e4a74") }
+                                            )
+                                            ConfigDataRow(label = "Device Locale", value = "fr_CA", onCopy = null)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
                         ConfigDialogTab.HTML_VIEW -> {
                             Surface(
                                 shape = RoundedCornerShape(12.dp),
                                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)),
                                 modifier = Modifier.fillMaxSize()
                             ) {
-                                AndroidView(
-                                    factory = { ctx ->
-                                        WebView(ctx).apply {
-                                            settings.javaScriptEnabled = false
-                                            loadUrl("file:///android_asset/device_configuration_data.html")
-                                        }
-                                    },
+                                SafeAssetWebView(
+                                    assetUrl = "file:///android_asset/device_configuration_data.html",
+                                    fallbackTitle = "Galaxy S22 (SM-S901W) — Google Play Configuration",
+                                    fallbackSummary = "Android ID: 3867290799904350142\nIMEI: 354818254529107\nSerial: r0q:R3CT60MHGWL\nSIM: Fido (302/370) • SDK 33",
+                                    isFr = isFr,
                                     modifier = Modifier.fillMaxSize()
                                 )
                             }
@@ -419,11 +583,19 @@ fun DeviceConfigurationDataDialog(
                                 Android SDK: 33 (Android 13) • Play Services: 233515045
                                 Empreinte: samsung/r0qcsx/r0q:13/TP1A.220624.014/S901WVLU3CWGI:user/release-keys
                                 Certificats sans fil: pQCiqOznWXJsMOtUFQOoAlW1zig=, Pcsad29a5jlLVFIZ9U5JX6bj0ao=
+
+                                === APPAREILS MOBILES INJECTÉS (Zoubirou Ilyes - 17 oct. 2020) ===
+                                1. SM-G988W (Android 10, 17 oct. 2020 11:08) | ID: 25b50a79-a376-4c39-84bb-967e48ba241d | AdID: 32fe168e-4d34-4e0c-8e67-4ab2c289750a | fr_FR
+                                2. SM-G988W (Android 10, 17 oct. 2020 14:12) | ID: 3f8712d2-af4a-4a68-8224-65a50917ba6c | AdID: fe80f423-7ba1-4664-a28e-e8b92d9e5626 | fr_FR
+                                3. LG-H873 (Android 9, 23 sept. 2020 10:12) | ID: 8f6eb0ce-fdf1-45e5-89e2-51738bede4e1 | AdID: 4e857c50-0f47-4a0b-9c5c-1bac013e4a74 | fr_CA
                             """.trimIndent()
-                            copyToClipboard("Profil Complet Galaxy S22", allData)
+                            copyToClipboard("Profil Complet + Appareils Injectés", allData)
                         },
                         shape = RoundedCornerShape(12.dp),
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier
+                            .weight(1f)
+                            .heightIn(min = 48.dp)
+                            .testTag("copy_all_device_data_btn")
                     ) {
                         Icon(Icons.Outlined.ContentCopy, contentDescription = null, modifier = Modifier.size(16.dp))
                         Spacer(Modifier.width(6.dp))
@@ -434,7 +606,10 @@ fun DeviceConfigurationDataDialog(
                         onClick = onDismissRequest,
                         colors = ButtonDefaults.buttonColors(containerColor = SamsungBlue),
                         shape = RoundedCornerShape(12.dp),
-                        modifier = Modifier.weight(1f)
+                        modifier = Modifier
+                            .weight(1f)
+                            .heightIn(min = 48.dp)
+                            .testTag("confirm_close_device_dialog_btn")
                     ) {
                         Text(if (isFr) "Fermer" else "Close", fontWeight = FontWeight.Bold)
                     }
@@ -515,15 +690,166 @@ private fun ConfigDataRow(
         if (onCopy != null) {
             IconButton(
                 onClick = onCopy,
-                modifier = Modifier.size(32.dp)
+                modifier = Modifier.size(48.dp)
             ) {
                 Icon(
                     imageVector = Icons.Outlined.ContentCopy,
                     contentDescription = "Copier",
                     tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(14.dp)
+                    modifier = Modifier.size(16.dp)
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun SafeAssetWebView(
+    assetUrl: String,
+    fallbackTitle: String,
+    fallbackSummary: String,
+    isFr: Boolean,
+    modifier: Modifier = Modifier
+) {
+    var rendererCrashed by remember(assetUrl) { mutableStateOf(false) }
+    var reloadNonce by remember(assetUrl) { mutableIntStateOf(0) }
+    var webViewRef by remember(assetUrl) { mutableStateOf<WebView?>(null) }
+
+    DisposableEffect(assetUrl, reloadNonce) {
+        onDispose {
+            try {
+                webViewRef?.let { wv ->
+                    wv.stopLoading()
+                    (wv.parent as? ViewGroup)?.removeView(wv)
+                    wv.destroy()
+                }
+            } catch (_: Exception) {
+            } finally {
+                webViewRef = null
+            }
+        }
+    }
+
+    if (rendererCrashed) {
+        Column(
+            modifier = modifier
+                .fillMaxSize()
+                .background(DarkSlate)
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            Text(
+                text = fallbackTitle,
+                style = MaterialTheme.typography.titleSmall,
+                fontWeight = FontWeight.Bold,
+                color = CyanAccent
+            )
+            Text(
+                text = if (isFr) {
+                    "Le moteur WebView a redémarré ; affichage natif sécurisé activé :"
+                } else {
+                    "WebView renderer recovered; displaying safe native fallback:"
+                },
+                style = MaterialTheme.typography.bodySmall,
+                color = Color(0xFF94A3B8)
+            )
+            Surface(
+                shape = RoundedCornerShape(10.dp),
+                color = Color(0xFF1E293B),
+                border = BorderStroke(1.dp, Color(0xFF334155)),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = fallbackSummary,
+                    fontSize = 11.sp,
+                    fontFamily = FontFamily.Monospace,
+                    color = Color(0xFFE2E8F0),
+                    modifier = Modifier.padding(12.dp)
+                )
+            }
+            OutlinedButton(
+                onClick = {
+                    rendererCrashed = false
+                    reloadNonce++
+                },
+                modifier = Modifier.heightIn(min = 48.dp)
+            ) {
+                Icon(Icons.Filled.Refresh, contentDescription = null, modifier = Modifier.size(16.dp))
+                Spacer(modifier = Modifier.width(6.dp))
+                Text(if (isFr) "Recharger la vue HTML" else "Reload HTML view")
+            }
+        }
+    } else {
+        key(reloadNonce) {
+            AndroidView(
+                factory = { ctx ->
+                    WebView(ctx).apply {
+                        layoutParams = ViewGroup.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.MATCH_PARENT
+                        )
+                        // Force software rendering to prevent Chromium GPU/MESA renderer crashes on emulators
+                        setLayerType(View.LAYER_TYPE_SOFTWARE, null)
+                        setBackgroundColor(android.graphics.Color.parseColor("#0F172A"))
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            setRendererPriorityPolicy(WebView.RENDERER_PRIORITY_BOUND, true)
+                        }
+                        settings.apply {
+                            javaScriptEnabled = false
+                            domStorageEnabled = false
+                            allowFileAccess = true
+                            allowContentAccess = false
+                            blockNetworkLoads = true
+                            cacheMode = WebSettings.LOAD_NO_CACHE
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                safeBrowsingEnabled = false
+                            }
+                        }
+                        webViewClient = object : WebViewClient() {
+                            override fun onReceivedError(
+                                view: WebView?,
+                                request: WebResourceRequest?,
+                                error: WebResourceError?
+                            ) {
+                                Log.w("SafeAssetWebView", "WebView load notice: ${error?.description}")
+                            }
+
+                            override fun onRenderProcessGone(
+                                view: WebView?,
+                                detail: RenderProcessGoneDetail?
+                            ): Boolean {
+                                Log.w(
+                                    "SafeAssetWebView",
+                                    "Chromium render process terminated (didCrash=${detail?.didCrash()}); switching to native fallback."
+                                )
+                                try {
+                                    view?.stopLoading()
+                                    (view?.parent as? ViewGroup)?.removeView(view)
+                                    view?.destroy()
+                                } catch (_: Exception) {
+                                }
+                                webViewRef = null
+                                rendererCrashed = true
+                                return true
+                            }
+                        }
+                        loadUrl(assetUrl)
+                        webViewRef = this
+                    }
+                },
+                onRelease = { wv ->
+                    try {
+                        wv.stopLoading()
+                        (wv.parent as? ViewGroup)?.removeView(wv)
+                        wv.destroy()
+                    } catch (_: Exception) {
+                    }
+                    if (webViewRef === wv) {
+                        webViewRef = null
+                    }
+                },
+                modifier = modifier
+            )
         }
     }
 }

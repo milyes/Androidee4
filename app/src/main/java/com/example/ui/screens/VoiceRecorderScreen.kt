@@ -18,6 +18,8 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -70,6 +72,7 @@ fun VoiceRecorderScreen(
     val playerState by viewModel.playerState.collectAsState()
     val recordings by viewModel.recordings.collectAsState()
     val appLanguage by viewModel.appLanguage.collectAsState()
+    val useForegroundServiceRecording by viewModel.useForegroundServiceRecording.collectAsState()
 
     // Handle back button to return to RECORDER_VAULT
     BackHandler {
@@ -136,6 +139,24 @@ fun VoiceRecorderScreen(
         label = "pulse_scale"
     )
 
+    // Auto-Scroll Show Fixed state and controller
+    val coroutineScope = rememberCoroutineScope()
+    val listState = rememberLazyListState()
+    var isAutoScrollFixed by remember { mutableStateOf(true) }
+
+    // Auto-scroll logic: ensures active recording card or newly saved item is always visible and fixed in view
+    LaunchedEffect(recorderState.isRecording, recorderState.durationSeconds, recordings.firstOrNull()?.id) {
+        if (isAutoScrollFixed) {
+            if (recorderState.isRecording) {
+                // Focus and keep the live recorder card visible
+                listState.animateScrollToItem(1)
+            } else if (recordings.isNotEmpty()) {
+                // Keep top of latest recordings in view
+                listState.animateScrollToItem(0)
+            }
+        }
+    }
+
     Scaffold(
         modifier = modifier
             .fillMaxSize()
@@ -201,6 +222,42 @@ fun VoiceRecorderScreen(
                     }
                 },
                 actions = {
+                    // Auto-Scroll Show Fixed Toggle Button
+                    Surface(
+                        onClick = {
+                            isAutoScrollFixed = !isAutoScrollFixed
+                            val msg = if (isAutoScrollFixed)
+                                appLanguage.tr("Auto-Scroll activé et fixé sur l'enregistrement actif", "Auto-Scroll active and fixed on live recording")
+                            else appLanguage.tr("Auto-Scroll désactivé (mode manuel)", "Auto-Scroll disabled (manual mode)")
+                            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+                        },
+                        shape = RoundedCornerShape(8.dp),
+                        color = if (isAutoScrollFixed) Color(0xFF10B981).copy(alpha = 0.2f) else MaterialTheme.colorScheme.surfaceVariant,
+                        border = BorderStroke(1.dp, if (isAutoScrollFixed) Color(0xFF10B981).copy(alpha = 0.5f) else MaterialTheme.colorScheme.outlineVariant),
+                        modifier = Modifier
+                            .padding(end = 4.dp)
+                            .testTag("top_bar_autoscroll_fixed_btn")
+                    ) {
+                        Row(
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Icon(
+                                imageVector = if (isAutoScrollFixed) Icons.Filled.Lock else Icons.Outlined.LockOpen,
+                                contentDescription = null,
+                                tint = if (isAutoScrollFixed) Color(0xFF10B981) else MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(13.dp)
+                            )
+                            Spacer(Modifier.width(4.dp))
+                            Text(
+                                text = if (isAutoScrollFixed) "SCROLL FIXÉ" else "SCROLL LIBRE",
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = if (isAutoScrollFixed) Color(0xFF10B981) else MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        }
+                    }
+
                     IconButton(
                         onClick = {
                             Toast.makeText(
@@ -221,9 +278,45 @@ fun VoiceRecorderScreen(
                     containerColor = MaterialTheme.colorScheme.surface
                 )
             )
+        },
+        floatingActionButton = {
+            if (isAutoScrollFixed) {
+                Surface(
+                    onClick = {
+                        coroutineScope.launch {
+                            listState.animateScrollToItem(if (recorderState.isRecording) 1 else 0)
+                        }
+                    },
+                    shape = RoundedCornerShape(20.dp),
+                    color = Color(0xFF10B981),
+                    border = BorderStroke(1.dp, Color(0xFF34D399)),
+                    shadowElevation = 6.dp,
+                    modifier = Modifier.testTag("floating_autoscroll_fixed_btn")
+                ) {
+                    Row(
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.VerticalAlignBottom,
+                            contentDescription = null,
+                            tint = Color.White,
+                            modifier = Modifier.size(15.dp)
+                        )
+                        Spacer(Modifier.width(6.dp))
+                        Text(
+                            text = "AUTO-SCROLL : FIXÉ",
+                            fontSize = 11.sp,
+                            fontWeight = FontWeight.ExtraBold,
+                            color = Color.White
+                        )
+                    }
+                }
+            }
         }
     ) { paddingValues ->
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
@@ -472,6 +565,54 @@ fun VoiceRecorderScreen(
                             }
                         }
 
+                        // AudioRecorderService Foreground Mode Switcher
+                        Surface(
+                            shape = RoundedCornerShape(12.dp),
+                            color = if (useForegroundServiceRecording) Color(0xFF10B981).copy(alpha = 0.12f) else MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.4f),
+                            border = BorderStroke(1.dp, if (useForegroundServiceRecording) Color(0xFF10B981).copy(alpha = 0.4f) else MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.4f)),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                                horizontalArrangement = Arrangement.SpaceBetween,
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.weight(1f)) {
+                                    Icon(
+                                        imageVector = Icons.Filled.NotificationsActive,
+                                        contentDescription = null,
+                                        tint = if (useForegroundServiceRecording) Color(0xFF10B981) else MaterialTheme.colorScheme.outline,
+                                        modifier = Modifier.size(18.dp)
+                                    )
+                                    Spacer(Modifier.width(8.dp))
+                                    Column {
+                                        Text(
+                                            text = tr("Service d'Enregistrement (Mode Réel)", "Foreground AudioRecorderService"),
+                                            style = MaterialTheme.typography.bodySmall,
+                                            fontWeight = FontWeight.Bold,
+                                            color = MaterialTheme.colorScheme.onSurface
+                                        )
+                                        Text(
+                                            text = tr("MediaRecorder matériel • Notification & WakeLock actif", "Hardware MediaRecorder • Active Notification & WakeLock"),
+                                            style = MaterialTheme.typography.labelSmall,
+                                            fontSize = 10.sp,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                }
+                                Switch(
+                                    checked = useForegroundServiceRecording,
+                                    onCheckedChange = { viewModel.toggleForegroundServiceRecordingMode(it) },
+                                    colors = SwitchDefaults.colors(
+                                        checkedTrackColor = Color(0xFF10B981),
+                                        checkedThumbColor = Color.White
+                                    )
+                                )
+                            }
+                        }
+
                         // Large Digital Timer
                         val duration = recorderState.durationSeconds
                         val minutes = duration / 60
@@ -515,13 +656,30 @@ fun VoiceRecorderScreen(
                             Column(modifier = Modifier.padding(12.dp)) {
                                 Row(
                                     modifier = Modifier.fillMaxWidth(),
-                                    horizontalArrangement = Arrangement.SpaceBetween
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
                                 ) {
-                                    Text(
-                                        text = tr("Spectre sonore direct", "Live Audio Spectrum"),
-                                        style = MaterialTheme.typography.labelSmall,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant
-                                    )
+                                    Row(verticalAlignment = Alignment.CenterVertically) {
+                                        Text(
+                                            text = tr("Spectre sonore direct", "Live Audio Spectrum"),
+                                            style = MaterialTheme.typography.labelSmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                        Spacer(Modifier.width(8.dp))
+                                        Surface(
+                                            shape = RoundedCornerShape(4.dp),
+                                            color = Color(0xFF06B6D4).copy(alpha = 0.2f),
+                                            border = BorderStroke(1.dp, Color(0xFF06B6D4).copy(alpha = 0.5f))
+                                        ) {
+                                            Text(
+                                                text = "AUTO-SCROLL FIXÉ",
+                                                fontSize = 9.sp,
+                                                fontWeight = FontWeight.Bold,
+                                                color = Color(0xFF06B6D4),
+                                                modifier = Modifier.padding(horizontal = 4.dp, vertical = 2.dp)
+                                            )
+                                        }
+                                    }
                                     Text(
                                         text = if (recorderState.isRecording) "${recorderState.liveAmplitudes.lastOrNull() ?: 0} / 100" else "0 / 100",
                                         fontFamily = FontFamily.Monospace,
@@ -533,6 +691,8 @@ fun VoiceRecorderScreen(
                                 AudioWaveformVisualizer(
                                     amplitudes = if (recorderState.isRecording) recorderState.liveAmplitudes else listOf(10, 15, 20, 15, 10, 8, 12, 10),
                                     isLive = recorderState.isRecording && !recorderState.isPaused,
+                                    autoScrollShowFixed = true,
+                                    showFixedPlayhead = true,
                                     barColor = if (recorderState.isRecording) Color(0xFFEF4444) else Color(0xFF00E5FF),
                                     activeBarColor = Color(0xFF00E5FF),
                                     inactiveBarColor = MaterialTheme.colorScheme.outlineVariant
