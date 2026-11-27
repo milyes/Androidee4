@@ -235,6 +235,19 @@ fun RecorderVaultScreen(
                         Spacer(Modifier.width(4.dp))
                         Text(if (appLanguage == com.example.ui.theme.AppLanguage.FRENCH) "Studio Micro" else "Voice Studio", fontSize = 11.sp, fontWeight = FontWeight.Bold)
                     }
+                    Spacer(modifier = Modifier.width(6.dp))
+                    FilledTonalIconButton(
+                        onClick = { viewModel.setTab(NavigationTab.RECORDING) },
+                        modifier = Modifier
+                            .size(48.dp)
+                            .testTag("open_recording_screen_btn")
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.GraphicEq,
+                            contentDescription = if (appLanguage == com.example.ui.theme.AppLanguage.FRENCH) "Enregistreur Waveform" else "Waveform Recorder",
+                            tint = MaterialTheme.colorScheme.primary
+                        )
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(14.dp))

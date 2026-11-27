@@ -25,6 +25,7 @@ import com.example.ui.screens.ContactsScreen
 import com.example.ui.screens.GoogleDriveSyncScreen
 import com.example.ui.screens.LoginScreen
 import com.example.ui.screens.RecorderVaultScreen
+import com.example.ui.screens.RecordingScreen
 import com.example.ui.screens.VoiceRecorderScreen
 import com.example.ui.screens.TermuxMacroScreen
 import com.example.ui.screens.LiveStreamScreen
@@ -226,6 +227,17 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
           }
 
           IconButton(
+            onClick = { viewModel.setTab(NavigationTab.RECORDING) },
+            modifier = Modifier.testTag("top_bar_recording_screen_btn")
+          ) {
+            Icon(
+              imageVector = Icons.Filled.GraphicEq,
+              contentDescription = if (appLanguage == AppLanguage.FRENCH) "Studio MediaRecorder & Onde" else "MediaRecorder & Waveform",
+              tint = if (currentTab == NavigationTab.RECORDING) androidx.compose.ui.graphics.Color(0xFF10B981) else MaterialTheme.colorScheme.primary
+            )
+          }
+
+          IconButton(
             onClick = { viewModel.setTab(NavigationTab.GOOGLE_DRIVE_SYNC) },
             modifier = Modifier.testTag("top_bar_gdrive_sync_btn")
           ) {
@@ -417,6 +429,7 @@ fun AudioSyncApp(viewModel: AudioSyncViewModel = viewModel()) {
           NavigationTab.LOGIN -> LoginScreen(viewModel = viewModel)
           NavigationTab.RECORDER_VAULT -> RecorderVaultScreen(viewModel = viewModel)
           NavigationTab.VOICE_RECORDER -> VoiceRecorderScreen(viewModel = viewModel)
+          NavigationTab.RECORDING -> RecordingScreen(viewModel = viewModel)
           NavigationTab.CLOUD_SYNC -> CloudSyncScreen(viewModel = viewModel)
           NavigationTab.GOOGLE_DRIVE_SYNC -> GoogleDriveSyncScreen(viewModel = viewModel)
           NavigationTab.CONTACTS -> ContactsScreen(viewModel = viewModel)

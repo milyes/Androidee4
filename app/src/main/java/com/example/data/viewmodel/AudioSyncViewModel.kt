@@ -36,6 +36,7 @@ enum class NavigationTab {
     LOGIN,
     RECORDER_VAULT,
     VOICE_RECORDER,
+    RECORDING,
     CLOUD_SYNC,
     GOOGLE_DRIVE_SYNC,
     CONTACTS,
